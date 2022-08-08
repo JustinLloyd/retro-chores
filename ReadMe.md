@@ -1,4 +1,4 @@
-# Retro Themed Wall Mounted Chores :ost Lab Notes
+# Retro Themed Wall Mounted Chores List Lab Notes
 
 *Sunday, June 26, 2022 10:35 AM*
 
