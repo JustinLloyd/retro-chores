@@ -116,10 +116,10 @@ etc.
 
 # Hardware Interfacing
 
-I am
-going to use a buffered IO board to connect the SBC to the hardware so nothing
-gets fried whilst I am prototyping. I've got two of the buffered IO boards
-coming in for experimentation.
+I am going to use a buffered IO board to connect the SBC to the hardware so nothing gets fried whilst I am prototyping.
+I've got two of the buffered IO boards coming in for experimentation.
+
+![](./lab-notes-images/image013.jpg)
 
 # Software
 
@@ -376,6 +376,8 @@ isn't just a cropped screen. This is good to know. It makes programming much eas
 ![](./lab-notes-images/image001.jpg)
 
 ![](./lab-notes-images/image002.jpg)
+
+![](./lab-notes-images/image015.gif)
 
 # Next Steps
 
@@ -867,6 +869,11 @@ leaving no room for more urgent chores to be done.
 
 Have created a basic VFD font, upper case and lower-case, numbers and some symbols.
 
+![](./lab-notes-images/image011.jpg)
+
+![](./lab-notes-images/image014.png)
+
+
 # Code updated to build the screen
 
 Have implemented functionality that will construct the screen from individual images as opoosed to using a single large
@@ -885,6 +892,8 @@ losing the capability to display a long string.
 
 Switched to using two lines of text per chore. 24 lines total. 18 characters wide per line. I think this will be more
 than adequate for my needs.
+
+![](./lab-notes-images/image012.jpg)
 
 # Simple text processor
 
