@@ -1,11 +1,11 @@
-# Retro Themed Wall Mounted Lab Notes
+# Retro Themed Wall Mounted Chores :ost Lab Notes
 
 *Sunday, June 26, 2022 10:35 AM*
 
 Keywords: Task List, To Do List, Magnetic, Magnet, Wall Mounted, Adult Activity Center, Electromagnetic, Toggle Switch,
 Chores
 
-# Adult Activity Center To Do List
+# Adult Activity Center Chores List
 
 We describe a device that acts as a simple to do list or list of chores. It is a display showing which chore needs to be
 done, along with a number of physical buttons to interact with.
