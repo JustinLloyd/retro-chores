@@ -1,6 +1,6 @@
 # Retro Themed Wall Mounted Lab Notes
 
-** Sunday, June 26, 2022 10:35 AM **
+*Sunday, June 26, 2022 10:35 AM*
 
 Keywords: Task List, To Do List, Magnetic, Magnet, Wall Mounted, Adult Activity Center, Electromagnetic, Toggle Switch,
 Chores
