@@ -388,14 +388,14 @@ that working, then port everything to Raylib.
 
 # Build graphics in AI
 
-- [ ] Build a static basic layout in AI that demonstrates what the screen will look like
-- [ ] Put the 14" screen in an enclosure where it won't get damaged
-- [ ] Hook the 14" screen up to my workstation
-- [ ] CVerify what the static basic layout in AI will look like on my screen
-- [ ] Install raylib on linux machine
-- [ ] Get basic display code up and running on raylib
-- [ ] Export AI files to transparent PNGs
-- [ ] Get basic static screen up on linux workstation with raylb
+- [x] Build a static basic layout in AI that demonstrates what the screen will look like
+- [x] Put the 14" screen in an enclosure where it won't get damaged
+- [x] Hook the 14" screen up to my workstation
+- [x] CVerify what the static basic layout in AI will look like on my screen
+- [x] Install raylib on linux machine
+- [x] Get basic display code up and running on raylib
+- [x] Export AI files to transparent PNGs
+- [x] Get basic static screen up on linux workstation with ~~raylb~~ pygame
 
 # Controlling LEDs
 
@@ -873,7 +873,6 @@ Have created a basic VFD font, upper case and lower-case, numbers and some symbo
 
 ![](./lab-notes-images/image014.png)
 
-
 # Code updated to build the screen
 
 Have implemented functionality that will construct the screen from individual images as opoosed to using a single large
@@ -1186,3 +1185,18 @@ hand tools, cotton swab sticks, and some pre-cut heat shrink.
 
 I could use the retro theme vVFD to make a Slack chat app that just displays DMs and mentions only on a dedicated
 screen.
+
+# Custom Circuits
+
+I am thinking, with the LEDs, the switches, the circuits, the SBC, etc, that I either design and (send out for) print a
+custom circuit board, or I use a large protoboard for laying everything out. This is going to be a one off build, so a
+single large, doubled sided protoboard isn't out of the question.
+
+## Very Large Protoboards
+
+Here is an ebay seller with one that is about 8" x 11.5" or around an A4 sheet of paper. This would be more than I need
+for my purposes.
+
+https://www.ebay.com/itm/113577313133
+
+![](./lab-notes-images/image016.png)
