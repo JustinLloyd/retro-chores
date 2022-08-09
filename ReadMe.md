@@ -5,6 +5,12 @@
 Keywords: Task List, To Do List, Magnetic, Magnet, Wall Mounted, Adult Activity Center, Electromagnetic, Toggle Switch,
 Chores
 
+*All code, images, text and other artifacts are copyright 2022 Justin Lloyd*
+
+*All Rights Reserved*
+
+*https://justin-lloyd.com*
+
 # Adult Activity Center Chores List
 
 We describe a device that acts as a simple to do list or list of chores. It is a display showing which chore needs to be
