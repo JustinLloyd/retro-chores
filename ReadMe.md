@@ -11,6 +11,8 @@ Chores
 
 *https://justin-lloyd.com*
 
+![](./lab-notes-images/image000.png)
+
 # Adult Activity Center Chores List
 
 We describe a device that acts as a simple to do list or list of chores. It is a display showing which chore needs to be
@@ -1206,3 +1208,10 @@ for my purposes.
 https://www.ebay.com/itm/113577313133
 
 ![](./lab-notes-images/image016.png)
+
+# Spritesheets!
+
+Updated my prototype code to use sprite sheets compiled with TexturePacker rather than individual images. Makes the code
+simpler and cleaner.
+
+![](./lab-notes-images/image017.png)
