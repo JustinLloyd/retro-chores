@@ -811,52 +811,52 @@ the overscan region of the display, or ensure my graphics fit within the black b
 
 # Chores
 
-|                                    |                               |                           |    |    |
-|------------------------------------|-------------------------------|---------------------------|----|----|
-| clean downstairs litter            |                               | Monday, Wednesday, Friday |    |    |
-| Clean upstairs litter              |                               | Monday, Wednesday, Friday |    |    |
-| Take out recycling bag             |                               |                           |    |    |
-| Take out rubbish  bag              |                               |                           |    |    |
-| Pay health  insurance              |                               |                           |    |    |
-| Give dog  medication               |                               |                           |    |    |
-| Refill dry cat  food               |                               |                           |    |    |
-| Refill dry dog  food               |                               |                           |    |    |
-| Clean coffee  machine              |                               |                           |    |    |
-| Wash kitchen  counters             |                               |                           |    |    |
-| Replace blue  sponge               |                               |                           |    |    |
-| Deep clean coffee  machine         |                               |                           |    |    |
-| Deep clean  dishwasher             |                               |                           |    |    |
-| Deep clean washing  machine        |                               |                           |    |    |
-| Clean refrigerator  shelves        |                               |                           |    |    |
-| Launder dining  room curtains      |                               |                           |    |    |
-| Launder breakfast  nook curtains   |                               |                           |    |    |
-| Launder living  room curtains      |                               |                           |    |    |
-| Launder office  curtains           |                               |                           |    |    |
-| Clean upstairs  toilet bowl        |                               |                           |    |    |
-| Clean downstairs  toilet bowl      |                               |                           |    |    |
-| Clean upstairs  bathroom mirror    |                               |                           |    |    |
-| Clean upstairs  bathroom sink      |                               |                           |    |    |
-| Clean upstairs  bathroom floor     |                               |                           |    |    |
-| Wash downstairs  bathroom mirror   |                               |                           |    |    |
-| Vacuum wooden  stairs              |                               |                           |    |    |
-| Wash downstairs  bathroom floor    |                               |                           |    |    |
-| Wash downstairs  bathroom sink     |                               |                           |    |    |
-| Replace kitchen  towels            |                               |                           |    |    |
-| Clean around                       |                               |                           |    |    |
-| kitchen stove                      |                               |                           |    |    |
-| Clean countertop oven              |                               |                           |    |    |
-| Launder drying mats                |                               |                           |    |    |
-| Call for refill of pet medication  |                               |                           |    |    |
-| Refill medications & supplements   |                               |                           |    |    |
-| Replace batteries in flashlights   |                               |                           |    |    |
-| Blow dust out of Synology          |                               |                           |    |    |
-| Blow dust out of farms             |                               |                           |    |    |
-| Blow dust out of workstation       |                               |                           |    |    |
-| Vacuum under Justin's desk         |                               |                           |    |    |
-| Switch out blue sponges            |                               |                           |    |    |
-| Switch out green sponges           |                               |                           |    |    |
-| Deep clean garbage disposal        |                               |                           |    |    |
-| Sharpen kitchen knives             |                               |                           |    |    |
+|                                   |     |                           |     |     |
+|-----------------------------------|-----|---------------------------|-----|-----|
+| clean downstairs litter           |     | Monday, Wednesday, Friday |     |     |
+| Clean upstairs litter             |     | Monday, Wednesday, Friday |     |     |
+| Take out recycling bag            |     |                           |     |     |
+| Take out rubbish  bag             |     |                           |     |     |
+| Pay health  insurance             |     |                           |     |     |
+| Give dog  medication              |     |                           |     |     |
+| Refill dry cat  food              |     |                           |     |     |
+| Refill dry dog  food              |     |                           |     |     |
+| Clean coffee  machine             |     |                           |     |     |
+| Wash kitchen  counters            |     |                           |     |     |
+| Replace blue  sponge              |     |                           |     |     |
+| Deep clean coffee  machine        |     |                           |     |     |
+| Deep clean  dishwasher            |     |                           |     |     |
+| Deep clean washing  machine       |     |                           |     |     |
+| Clean refrigerator  shelves       |     |                           |     |     |
+| Launder dining  room curtains     |     |                           |     |     |
+| Launder breakfast  nook curtains  |     |                           |     |     |
+| Launder living  room curtains     |     |                           |     |     |
+| Launder office  curtains          |     |                           |     |     |
+| Clean upstairs  toilet bowl       |     |                           |     |     |
+| Clean downstairs  toilet bowl     |     |                           |     |     |
+| Clean upstairs  bathroom mirror   |     |                           |     |     |
+| Clean upstairs  bathroom sink     |     |                           |     |     |
+| Clean upstairs  bathroom floor    |     |                           |     |     |
+| Wash downstairs  bathroom mirror  |     |                           |     |     |
+| Vacuum wooden  stairs             |     |                           |     |     |
+| Wash downstairs  bathroom floor   |     |                           |     |     |
+| Wash downstairs  bathroom sink    |     |                           |     |     |
+| Replace kitchen  towels           |     |                           |     |     |
+| Clean around                      |     |                           |     |     |
+| kitchen stove                     |     |                           |     |     |
+| Clean countertop oven             |     |                           |     |     |
+| Launder drying mats               |     |                           |     |     |
+| Call for refill of pet medication |     |                           |     |     |
+| Refill medications & supplements  |     |                           |     |     |
+| Replace batteries in flashlights  |     |                           |     |     |
+| Blow dust out of Synology         |     |                           |     |     |
+| Blow dust out of farms            |     |                           |     |     |
+| Blow dust out of workstation      |     |                           |     |     |
+| Vacuum under Justin's desk        |     |                           |     |     |
+| Switch out blue sponges           |     |                           |     |     |
+| Switch out green sponges          |     |                           |     |     |
+| Deep clean garbage disposal       |     |                           |     |     |
+| Sharpen kitchen knives            |     |                           |     |     |
 
 # Urgency
 

@@ -1,0 +1,83 @@
+{
+  "chores": [
+    {
+        "task": "Water plants (except Rosemary)"
+    },
+    {
+        "task": "Water Basil plants",
+        "dayparts": ["evening"]
+    },
+    {
+        "task": "Water rosemary",
+        "weekly": ["Wednesday", "Friday"],
+        "dayparts": ["morning"]
+    },
+    {
+        "task": "Empty dishwasher",
+        "weekly": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "dayparts": ["morning"]
+    },
+    {
+        "task": "Load dishwasher",
+        "weekly": ["Monday", "Tuesday","Wednesday", "Thursday", "Friday","Saturday", "Sunday"],
+        "dayparts": ["evening"]
+    },
+    {
+        "task": "Take out recycling",
+        "weekly": ["Tuesday"],
+        "dayparts": ["morning"],
+        "urgency": "immediate"
+    },
+    {
+        "task": "Take out rubbish bags",
+        "weekly": ["Tuesday"],
+        "dayparts": ["morning"],
+        "urgency": "immediate"
+    },
+    {
+        "task": "Clean cat litter",
+        "weekly": ["Monday, Wednesday, Friday"],
+        "dayparts": ["morning"]
+    },
+    {
+        "task": "Give dog flea medication",
+        "monthly": "15",
+        "urgency": "days"
+    },
+    {
+        "task": "Wash car",
+        "monthly": ["10", "20"],
+        "urgency": "week"
+    },
+    {
+        "task": "Renew CostCo membership",
+        "yearly": "11/15",
+        "urgency": "month"
+    },
+    {
+        "task": "Call your mother",
+        "yearly": ["12/24", "11/24","9/11","8/11", "7/4", "3/2", "1/2"],
+        "urgency": "week"
+    },
+    {
+        "task": "Bathe dog",
+        "monthly": "first Tuesday",
+        "urgency": "week"
+    },
+    {
+        "task": "Browse flea market",
+        "monthly": ["second sunday", "last sunday"],
+        "urgency": "immediate"
+    },
+    {
+        "task": "Pay gas bill",
+        "monthly": "10",
+        "urgency": "week"
+    },
+    {
+        "task": "Pay car insurance",
+        "monthly": "12",
+        "urgency": "week"
+    }
+    ]
+}
