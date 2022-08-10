@@ -1,9 +1,19 @@
+# All code, images, text and other artifacts are copyright 2022 Justin Lloyd
+# All Rights Reserved
+# https://justin-lloyd.com
+
+
+from os import environ
+
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
+
 import sys
 
 import pygame
 import os
 
 from pygame.locals import *
+from spritesheet import *
 
 max_columns = 20
 max_ranks = 12
@@ -149,55 +159,56 @@ def load_assets():
     global strip_stride
     global rank_stride
 
-    cell_off = pygame.image.load("./assets/vfd-cell-off.png")
+    spritesheet = Spritesheet("./assets/sprite-sheet")
+    cell_off = spritesheet.get_by_name('vfd-cell-off')
     # upper case letters
     # letter_uppercase_a = pygame.image.load("./assets/letter-uppercase-a.png")
     # letter_uppercase_b = pygame.image.load("./assets/letter-uppercase-b.png")
     # letter_uppercase_c = pygame.image.load("./assets/letter-uppercase-c.png")
-    letter_uppercase_d = pygame.image.load("./assets/letter-uppercase-d.png")
-    letter_uppercase_e = pygame.image.load("./assets/letter-uppercase-e.png")
-    letter_uppercase_f = pygame.image.load("./assets/letter-uppercase-f.png")
-    letter_uppercase_g = pygame.image.load("./assets/letter-uppercase-g.png")
-    letter_uppercase_h = pygame.image.load("./assets/letter-uppercase-h.png")
-    letter_uppercase_i = pygame.image.load("./assets/letter-uppercase-i.png")
-    letter_uppercase_j = pygame.image.load("./assets/letter-uppercase-j.png")
-    letter_uppercase_k = pygame.image.load("./assets/letter-uppercase-k.png")
-    letter_uppercase_l = pygame.image.load("./assets/letter-uppercase-l.png")
-    letter_uppercase_m = pygame.image.load("./assets/letter-uppercase-m.png")
-    letter_uppercase_n = pygame.image.load("./assets/letter-uppercase-n.png")
-    letter_uppercase_o = pygame.image.load("./assets/letter-uppercase-o.png")
-    letter_uppercase_p = pygame.image.load("./assets/letter-uppercase-p.png")
-    letter_uppercase_q = pygame.image.load("./assets/letter-uppercase-q.png")
-    letter_uppercase_r = pygame.image.load("./assets/letter-uppercase-r.png")
-    letter_uppercase_s = pygame.image.load("./assets/letter-uppercase-s.png")
-    letter_uppercase_t = pygame.image.load("./assets/letter-uppercase-t.png")
-    letter_uppercase_u = pygame.image.load("./assets/letter-uppercase-u.png")
-    letter_uppercase_v = pygame.image.load("./assets/letter-uppercase-v.png")
-    letter_uppercase_w = pygame.image.load("./assets/letter-uppercase-w.png")
-    letter_uppercase_x = pygame.image.load("./assets/letter-uppercase-x.png")
-    letter_uppercase_y = pygame.image.load("./assets/letter-uppercase-y.png")
-    letter_uppercase_z = pygame.image.load("./assets/letter-uppercase-z.png")
-
-    # numbers
-    number_0 = pygame.image.load("./assets/number-0.png")
-    number_1 = pygame.image.load("./assets/number-2.png")
-    number_2 = pygame.image.load("./assets/number-2.png")
-    number_3 = pygame.image.load("./assets/number-3.png")
-    number_4 = pygame.image.load("./assets/number-4.png")
-    number_5 = pygame.image.load("./assets/number-5.png")
-    number_6 = pygame.image.load("./assets/number-6.png")
-    number_7 = pygame.image.load("./assets/number-7.png")
-    number_8 = pygame.image.load("./assets/number-8.png")
-    number_9 = pygame.image.load("./assets/number-9.png")
-
-    symbol_minus = pygame.image.load("./assets/symbol-minus.png")
-    symbol_plus = pygame.image.load("./assets/symbol-plus.png")
-    symbol_at = pygame.image.load("./assets/symbol-at.png")
-    symbol_dollar = pygame.image.load("./assets/symbol-dollar.png")
-    symbol_slash = pygame.image.load("./assets/symbol-slash.png")
-    symbol_bang = pygame.image.load("./assets/symbol-bang.png")
-    symbol_hash = pygame.image.load("./assets/symbol-hash.png")
-    symbol_percentage = pygame.image.load("./assets/symbol-percentage.png")
+    # letter_uppercase_d = pygame.image.load("./assets/letter-uppercase-d.png")
+    # letter_uppercase_e = pygame.image.load("./assets/letter-uppercase-e.png")
+    # letter_uppercase_f = pygame.image.load("./assets/letter-uppercase-f.png")
+    # letter_uppercase_g = pygame.image.load("./assets/letter-uppercase-g.png")
+    # letter_uppercase_h = pygame.image.load("./assets/letter-uppercase-h.png")
+    # letter_uppercase_i = pygame.image.load("./assets/letter-uppercase-i.png")
+    # letter_uppercase_j = pygame.image.load("./assets/letter-uppercase-j.png")
+    # letter_uppercase_k = pygame.image.load("./assets/letter-uppercase-k.png")
+    # letter_uppercase_l = pygame.image.load("./assets/letter-uppercase-l.png")
+    # letter_uppercase_m = pygame.image.load("./assets/letter-uppercase-m.png")
+    # letter_uppercase_n = pygame.image.load("./assets/letter-uppercase-n.png")
+    # letter_uppercase_o = pygame.image.load("./assets/letter-uppercase-o.png")
+    # letter_uppercase_p = pygame.image.load("./assets/letter-uppercase-p.png")
+    # letter_uppercase_q = pygame.image.load("./assets/letter-uppercase-q.png")
+    # letter_uppercase_r = pygame.image.load("./assets/letter-uppercase-r.png")
+    # letter_uppercase_s = pygame.image.load("./assets/letter-uppercase-s.png")
+    # letter_uppercase_t = pygame.image.load("./assets/letter-uppercase-t.png")
+    # letter_uppercase_u = pygame.image.load("./assets/letter-uppercase-u.png")
+    # letter_uppercase_v = pygame.image.load("./assets/letter-uppercase-v.png")
+    # letter_uppercase_w = pygame.image.load("./assets/letter-uppercase-w.png")
+    # letter_uppercase_x = pygame.image.load("./assets/letter-uppercase-x.png")
+    # letter_uppercase_y = pygame.image.load("./assets/letter-uppercase-y.png")
+    # letter_uppercase_z = pygame.image.load("./assets/letter-uppercase-z.png")
+    #
+    # # numbers
+    # number_0 = pygame.image.load("./assets/number-0.png")
+    # number_1 = pygame.image.load("./assets/number-2.png")
+    # number_2 = pygame.image.load("./assets/number-2.png")
+    # number_3 = pygame.image.load("./assets/number-3.png")
+    # number_4 = pygame.image.load("./assets/number-4.png")
+    # number_5 = pygame.image.load("./assets/number-5.png")
+    # number_6 = pygame.image.load("./assets/number-6.png")
+    # number_7 = pygame.image.load("./assets/number-7.png")
+    # number_8 = pygame.image.load("./assets/number-8.png")
+    # number_9 = pygame.image.load("./assets/number-9.png")
+    #
+    # symbol_minus = pygame.image.load("./assets/symbol-minus.png")
+    # symbol_plus = pygame.image.load("./assets/symbol-plus.png")
+    # symbol_at = pygame.image.load("./assets/symbol-at.png")
+    # symbol_dollar = pygame.image.load("./assets/symbol-dollar.png")
+    # symbol_slash = pygame.image.load("./assets/symbol-slash.png")
+    # symbol_bang = pygame.image.load("./assets/symbol-bang.png")
+    # symbol_hash = pygame.image.load("./assets/symbol-hash.png")
+    # symbol_percentage = pygame.image.load("./assets/symbol-percentage.png")
 
     character_lookup = {
         # '.': {'img': None, 'x': 0, 'y': 0},
@@ -205,50 +216,50 @@ def load_assets():
         # ';': {'img': None, 'x': 0, 'y': 0},
         # '\'': {'img': None, 'x': 0, 'y': 0},
         # '-': {'img': None, 'x': 0, 'y': 0},
-        'A': {'img': pygame.image.load("./assets/letter-uppercase-a.png"), 'x': 0, 'y': 0},
-        'B': {'img': pygame.image.load("./assets/letter-uppercase-b.png"), 'x': 0, 'y': 0},
-        'C': {'img': pygame.image.load("./assets/letter-uppercase-c.png"), 'x': 0, 'y': 0},
-        'D': {'img': letter_uppercase_d, 'x': 0, 'y': 0},
-        'E': {'img': letter_uppercase_e, 'x': 0, 'y': 0},
-        'F': {'img': letter_uppercase_f, 'x': 0, 'y': 0},
-        'G': {'img': letter_uppercase_g, 'x': 0, 'y': 0},
-        'H': {'img': letter_uppercase_h, 'x': 0, 'y': 0},
-        'I': {'img': letter_uppercase_i, 'x': 0, 'y': 0},
-        'J': {'img': letter_uppercase_j, 'x': 0, 'y': 0},
-        'K': {'img': letter_uppercase_k, 'x': 0, 'y': 0},
-        'L': {'img': letter_uppercase_l, 'x': 0, 'y': 0},
-        'M': {'img': letter_uppercase_m, 'x': 0, 'y': 0},
-        'N': {'img': letter_uppercase_n, 'x': 0, 'y': 0},
-        'O': {'img': letter_uppercase_o, 'x': 0, 'y': 0},
-        'P': {'img': letter_uppercase_p, 'x': 0, 'y': 0},
-        'Q': {'img': letter_uppercase_q, 'x': 0, 'y': 0},
-        'R': {'img': letter_uppercase_r, 'x': 0, 'y': 0},
-        'S': {'img': letter_uppercase_s, 'x': 0, 'y': 0},
-        'T': {'img': letter_uppercase_t, 'x': 0, 'y': 0},
-        'U': {'img': letter_uppercase_u, 'x': 0, 'y': 0},
-        'V': {'img': letter_uppercase_v, 'x': 0, 'y': 0},
-        'W': {'img': letter_uppercase_w, 'x': 0, 'y': 0},
-        'X': {'img': letter_uppercase_x, 'x': 0, 'y': 0},
-        'Y': {'img': letter_uppercase_y, 'x': 0, 'y': 0},
-        'Z': {'img': letter_uppercase_z, 'x': 0, 'y': 0},
-        '0': {'img': number_0, 'x': 0, 'y': 0},
-        '1': {'img': number_1, 'x': 0, 'y': 0},
-        '2': {'img': number_2, 'x': 0, 'y': 0},
-        '3': {'img': number_3, 'x': 0, 'y': 0},
-        '4': {'img': number_4, 'x': 0, 'y': 0},
-        '5': {'img': number_5, 'x': 0, 'y': 0},
-        '6': {'img': number_6, 'x': 0, 'y': 0},
-        '7': {'img': number_7, 'x': 0, 'y': 0},
-        '8': {'img': number_8, 'x': 0, 'y': 0},
-        '9': {'img': number_9, 'x': 0, 'y': 0},
-        '-': {'img': symbol_minus, 'x': 0, 'y': 0},
-        '+': {'img': symbol_plus, 'x': 0, 'y': 0},
-        '@': {'img': symbol_at, 'x': 0, 'y': 0},
-        '$': {'img': symbol_dollar, 'x': 0, 'y': 0},
-        '/': {'img': symbol_slash, 'x': 0, 'y': 0},
-        '!': {'img': symbol_bang, 'x': 0, 'y': 0},
-        '#': {'img': symbol_hash, 'x': 0, 'y': 0},
-        '%': {'img': symbol_percentage, 'x': 0, 'y': 0},
+        'A': {'img': spritesheet.get_by_name("letter-uppercase-a"), 'x': 0, 'y': 0},
+        'B': {'img': spritesheet.get_by_name("letter-uppercase-b"), 'x': 0, 'y': 0},
+        'C': {'img': spritesheet.get_by_name("letter-uppercase-c"), 'x': 0, 'y': 0},
+        'D': {'img': spritesheet.get_by_name("letter-uppercase-d"), 'x': 0, 'y': 0},
+        'E': {'img': spritesheet.get_by_name("letter-uppercase-e"), 'x': 0, 'y': 0},
+        'F': {'img': spritesheet.get_by_name("letter-uppercase-f"), 'x': 0, 'y': 0},
+        'G': {'img': spritesheet.get_by_name("letter-uppercase-g"), 'x': 0, 'y': 0},
+        'H': {'img': spritesheet.get_by_name("letter-uppercase-h"), 'x': 0, 'y': 0},
+        'I': {'img': spritesheet.get_by_name("letter-uppercase-i"), 'x': 0, 'y': 0},
+        'J': {'img': spritesheet.get_by_name("letter-uppercase-j"), 'x': 0, 'y': 0},
+        'K': {'img': spritesheet.get_by_name("letter-uppercase-k"), 'x': 0, 'y': 0},
+        'L': {'img': spritesheet.get_by_name("letter-uppercase-l"), 'x': 0, 'y': 0},
+        'M': {'img': spritesheet.get_by_name("letter-uppercase-m"), 'x': 0, 'y': 0},
+        'N': {'img': spritesheet.get_by_name("letter-uppercase-n"), 'x': 0, 'y': 0},
+        'O': {'img': spritesheet.get_by_name("letter-uppercase-o"), 'x': 0, 'y': 0},
+        'P': {'img': spritesheet.get_by_name("letter-uppercase-p"), 'x': 0, 'y': 0},
+        'Q': {'img': spritesheet.get_by_name("letter-uppercase-q"), 'x': 0, 'y': 0},
+        'R': {'img': spritesheet.get_by_name("letter-uppercase-r"), 'x': 0, 'y': 0},
+        'S': {'img': spritesheet.get_by_name("letter-uppercase-s"), 'x': 0, 'y': 0},
+        'T': {'img': spritesheet.get_by_name("letter-uppercase-t"), 'x': 0, 'y': 0},
+        'U': {'img': spritesheet.get_by_name("letter-uppercase-u"), 'x': 0, 'y': 0},
+        'V': {'img': spritesheet.get_by_name("letter-uppercase-v"), 'x': 0, 'y': 0},
+        'W': {'img': spritesheet.get_by_name("letter-uppercase-w"), 'x': 0, 'y': 0},
+        'X': {'img': spritesheet.get_by_name("letter-uppercase-x"), 'x': 0, 'y': 0},
+        'Y': {'img': spritesheet.get_by_name("letter-uppercase-y"), 'x': 0, 'y': 0},
+        'Z': {'img': spritesheet.get_by_name("letter-uppercase-z"), 'x': 0, 'y': 0},
+        '0': {'img': spritesheet.get_by_name("number-0"), 'x': 0, 'y': 0},
+        '1': {'img': spritesheet.get_by_name("number-1"), 'x': 0, 'y': 0},
+        '2': {'img': spritesheet.get_by_name("number-2"), 'x': 0, 'y': 0},
+        '3': {'img': spritesheet.get_by_name("number-3"), 'x': 0, 'y': 0},
+        '4': {'img': spritesheet.get_by_name("number-4"), 'x': 0, 'y': 0},
+        '5': {'img': spritesheet.get_by_name("number-5"), 'x': 0, 'y': 0},
+        '6': {'img': spritesheet.get_by_name("number-6"), 'x': 0, 'y': 0},
+        '7': {'img': spritesheet.get_by_name("number-7"), 'x': 0, 'y': 0},
+        '8': {'img': spritesheet.get_by_name("number-8"), 'x': 0, 'y': 0},
+        '9': {'img': spritesheet.get_by_name("number-9"), 'x': 0, 'y': 0},
+        '-': {'img': spritesheet.get_by_name("symbol-minus"), 'x': 0, 'y': 0},
+        '+': {'img': spritesheet.get_by_name("symbol-plus"), 'x': 0, 'y': 0},
+        '@': {'img': spritesheet.get_by_name("symbol-at"), 'x': 0, 'y': 0},
+        '$': {'img': spritesheet.get_by_name("symbol-dollar"), 'x': 0, 'y': 0},
+        '/': {'img': spritesheet.get_by_name("symbol-slash"), 'x': 0, 'y': 0},
+        '!': {'img': spritesheet.get_by_name("symbol-bang"), 'x': 0, 'y': 0},
+        '#': {'img': spritesheet.get_by_name("symbol-hash"), 'x': 0, 'y': 0},
+        '%': {'img': spritesheet.get_by_name("symbol-percentage"), 'x': 0, 'y': 0},
     }
 
     if not pi:
@@ -284,6 +295,7 @@ vfd_print('LOAD DISHWASHER', 6)
 vfd_print('EMPTY RECYCLING BIN', 7)
 vfd_print('WASH MICROWAVE', 8)
 vfd_print('CHANGE BED LINENS', 9)
+
 flush()
 wait()
 pygame.display.quit()

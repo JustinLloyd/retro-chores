@@ -1,701 +1,372 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-    <dict>
-        <key>frames</key>
-        <dict>
-            <key>letter-uppercase-a.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,65}</string>
-                <key>textureRect</key>
-                <string>{{182,71},{48,65}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-b.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{44,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{44,68}</string>
-                <key>textureRect</key>
-                <string>{{392,1},{44,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-c.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,68}</string>
-                <key>textureRect</key>
-                <string>{{484,1},{43,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-d.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{45,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{45,68}</string>
-                <key>textureRect</key>
-                <string>{{251,1},{45,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-e.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,68}</string>
-                <key>textureRect</key>
-                <string>{{529,1},{43,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-f.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{44,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{44,65}</string>
-                <key>textureRect</key>
-                <string>{{840,1},{44,65}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-g.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{45,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{45,68}</string>
-                <key>textureRect</key>
-                <string>{{298,1},{45,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-h.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,62}</string>
-                <key>textureRect</key>
-                <string>{{645,71},{47,62}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-i.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{41,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{41,68}</string>
-                <key>textureRect</key>
-                <string>{{754,1},{41,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-j.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,65}</string>
-                <key>textureRect</key>
-                <string>{{249,71},{48,65}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-k.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{41,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{41,62}</string>
-                <key>textureRect</key>
-                <string>{{972,1},{41,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-l.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{38,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{38,65}</string>
-                <key>textureRect</key>
-                <string>{{932,1},{38,65}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-m.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,62}</string>
-                <key>textureRect</key>
-                <string>{{383,71},{48,62}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-n.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,62}</string>
-                <key>textureRect</key>
-                <string>{{447,71},{48,62}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-o.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,68}</string>
-                <key>textureRect</key>
-                <string>{{104,1},{47,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-p.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,65}</string>
-                <key>textureRect</key>
-                <string>{{511,71},{47,65}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-q.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,68}</string>
-                <key>textureRect</key>
-                <string>{{1,74},{48,68}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-r.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,65}</string>
-                <key>textureRect</key>
-                <string>{{578,71},{47,65}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-s.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,68}</string>
-                <key>textureRect</key>
-                <string>{{574,1},{43,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-t.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{36,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{36,62}</string>
-                <key>textureRect</key>
-                <string>{{1015,1},{36,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-u.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,65}</string>
-                <key>textureRect</key>
-                <string>{{316,71},{48,65}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-v.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{40,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{40,62}</string>
-                <key>textureRect</key>
-                <string>{{999,65},{40,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-w.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,62}</string>
-                <key>textureRect</key>
-                <string>{{709,71},{47,62}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>letter-uppercase-x.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{34,56}</string>
-                <key>spriteSourceSize</key>
-                <string>{34,56}</string>
-                <key>textureRect</key>
-                <string>{{109,71},{34,56}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-y.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{30,57}</string>
-                <key>spriteSourceSize</key>
-                <string>{30,57}</string>
-                <key>textureRect</key>
-                <string>{{840,68},{30,57}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>letter-uppercase-z.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{41,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{41,68}</string>
-                <key>textureRect</key>
-                <string>{{797,1},{41,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-0.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,68}</string>
-                <key>textureRect</key>
-                <string>{{153,1},{47,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-1.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{20,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{20,62}</string>
-                <key>textureRect</key>
-                <string>{{1053,1},{20,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-2.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{48,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{48,68}</string>
-                <key>textureRect</key>
-                <string>{{54,1},{48,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-3.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{44,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{44,68}</string>
-                <key>textureRect</key>
-                <string>{{438,1},{44,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-4.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{46,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{46,62}</string>
-                <key>textureRect</key>
-                <string>{{872,68},{46,62}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>number-5.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,68}</string>
-                <key>textureRect</key>
-                <string>{{619,1},{43,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-6.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{45,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{45,68}</string>
-                <key>textureRect</key>
-                <string>{{345,1},{45,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-7.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{36,62}</string>
-                <key>spriteSourceSize</key>
-                <string>{36,62}</string>
-                <key>textureRect</key>
-                <string>{{1041,65},{36,62}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-8.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{47,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{47,68}</string>
-                <key>textureRect</key>
-                <string>{{202,1},{47,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>number-9.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{46,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{46,65}</string>
-                <key>textureRect</key>
-                <string>{{773,71},{46,65}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>symbol-at.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{44,65}</string>
-                <key>spriteSourceSize</key>
-                <string>{44,65}</string>
-                <key>textureRect</key>
-                <string>{{886,1},{44,65}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>symbol-bang.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{9,61}</string>
-                <key>spriteSourceSize</key>
-                <string>{9,61}</string>
-                <key>textureRect</key>
-                <string>{{872,116},{9,61}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>symbol-dollar.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,68}</string>
-                <key>textureRect</key>
-                <string>{{664,1},{43,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>symbol-hash.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,68}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,68}</string>
-                <key>textureRect</key>
-                <string>{{709,1},{43,68}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>symbol-minus.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{37,5}</string>
-                <key>spriteSourceSize</key>
-                <string>{37,5}</string>
-                <key>textureRect</key>
-                <string>{{182,121},{37,5}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>symbol-percentage.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{43,61}</string>
-                <key>spriteSourceSize</key>
-                <string>{43,61}</string>
-                <key>textureRect</key>
-                <string>{{936,68},{43,61}}</string>
-                <key>textureRotated</key>
-                <true/>
-            </dict>
-            <key>symbol-plus.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{36,56}</string>
-                <key>spriteSourceSize</key>
-                <string>{36,56}</string>
-                <key>textureRect</key>
-                <string>{{71,71},{36,56}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>symbol-slash.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{35,55}</string>
-                <key>spriteSourceSize</key>
-                <string>{35,55}</string>
-                <key>textureRect</key>
-                <string>{{145,71},{35,55}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-            <key>vfd-cell-off.png</key>
-            <dict>
-                <key>aliases</key>
-                <array/>
-                <key>spriteOffset</key>
-                <string>{0,0}</string>
-                <key>spriteSize</key>
-                <string>{51,71}</string>
-                <key>spriteSourceSize</key>
-                <string>{51,71}</string>
-                <key>textureRect</key>
-                <string>{{1,1},{51,71}}</string>
-                <key>textureRotated</key>
-                <false/>
-            </dict>
-        </dict>
-        <key>metadata</key>
-        <dict>
-            <key>format</key>
-            <integer>3</integer>
-            <key>pixelFormat</key>
-            <string>RGBA8888</string>
-            <key>premultiplyAlpha</key>
-            <false/>
-            <key>realTextureFileName</key>
-            <string>sprite-sheet.png</string>
-            <key>size</key>
-            <string>{1078,128}</string>
-            <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:53ecc0e6673f65668e7da4fcf7b822e6:5a4984003f753ab25762e0daa1f753e5:4cb984b15aa0f50ff47c18de1fc08384$</string>
-            <key>textureFileName</key>
-            <string>sprite-sheet.png</string>
-        </dict>
-    </dict>
-</plist>
+{"frames": {
+
+"letter-uppercase-a":
+{
+	"frame": {"x":100,"y":71,"w":48,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":65},
+	"sourceSize": {"w":48,"h":65}
+},
+"letter-uppercase-b":
+{
+	"frame": {"x":197,"y":138,"w":44,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":44,"h":68},
+	"sourceSize": {"w":44,"h":68}
+},
+"letter-uppercase-c":
+{
+	"frame": {"x":244,"y":68,"w":43,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":68},
+	"sourceSize": {"w":43,"h":68}
+},
+"letter-uppercase-d":
+{
+	"frame": {"x":150,"y":68,"w":45,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":68},
+	"sourceSize": {"w":45,"h":68}
+},
+"letter-uppercase-e":
+{
+	"frame": {"x":289,"y":65,"w":43,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":68},
+	"sourceSize": {"w":43,"h":68}
+},
+"letter-uppercase-f":
+{
+	"frame": {"x":351,"y":205,"w":44,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":44,"h":65},
+	"sourceSize": {"w":44,"h":65}
+},
+"letter-uppercase-g":
+{
+	"frame": {"x":150,"y":138,"w":45,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":68},
+	"sourceSize": {"w":45,"h":68}
+},
+"letter-uppercase-h":
+{
+	"frame": {"x":250,"y":1,"w":47,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":62},
+	"sourceSize": {"w":47,"h":62}
+},
+"letter-uppercase-i":
+{
+	"frame": {"x":379,"y":132,"w":41,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":41,"h":68},
+	"sourceSize": {"w":41,"h":68}
+},
+"letter-uppercase-j":
+{
+	"frame": {"x":103,"y":1,"w":48,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":65},
+	"sourceSize": {"w":48,"h":65}
+},
+"letter-uppercase-k":
+{
+	"frame": {"x":396,"y":1,"w":41,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":41,"h":62},
+	"sourceSize": {"w":41,"h":62}
+},
+"letter-uppercase-l":
+{
+	"frame": {"x":440,"y":196,"w":38,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":38,"h":65},
+	"sourceSize": {"w":38,"h":65}
+},
+"letter-uppercase-m":
+{
+	"frame": {"x":206,"y":208,"w":48,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":62},
+	"sourceSize": {"w":48,"h":62}
+},
+"letter-uppercase-n":
+{
+	"frame": {"x":256,"y":208,"w":48,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":62},
+	"sourceSize": {"w":48,"h":62}
+},
+"letter-uppercase-o":
+{
+	"frame": {"x":51,"y":74,"w":47,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":68},
+	"sourceSize": {"w":47,"h":68}
+},
+"letter-uppercase-p":
+{
+	"frame": {"x":153,"y":1,"w":47,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":65},
+	"sourceSize": {"w":47,"h":65}
+},
+"letter-uppercase-q":
+{
+	"frame": {"x":1,"y":74,"w":48,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":68},
+	"sourceSize": {"w":48,"h":68}
+},
+"letter-uppercase-r":
+{
+	"frame": {"x":157,"y":208,"w":47,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":65},
+	"sourceSize": {"w":47,"h":65}
+},
+"letter-uppercase-s":
+{
+	"frame": {"x":289,"y":135,"w":43,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":68},
+	"sourceSize": {"w":43,"h":68}
+},
+"letter-uppercase-t":
+{
+	"frame": {"x":425,"y":65,"w":36,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":62},
+	"sourceSize": {"w":36,"h":62}
+},
+"letter-uppercase-u":
+{
+	"frame": {"x":100,"y":138,"w":48,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":65},
+	"sourceSize": {"w":48,"h":65}
+},
+"letter-uppercase-v":
+{
+	"frame": {"x":422,"y":132,"w":40,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":40,"h":62},
+	"sourceSize": {"w":40,"h":62}
+},
+"letter-uppercase-w":
+{
+	"frame": {"x":299,"y":1,"w":47,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":62},
+	"sourceSize": {"w":47,"h":62}
+},
+"letter-uppercase-x":
+{
+	"frame": {"x":76,"y":214,"w":34,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":34,"h":56},
+	"sourceSize": {"w":34,"h":56}
+},
+"letter-uppercase-y":
+{
+	"frame": {"x":463,"y":65,"w":30,"h":57},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":30,"h":57},
+	"sourceSize": {"w":30,"h":57}
+},
+"letter-uppercase-z":
+{
+	"frame": {"x":397,"y":202,"w":41,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":41,"h":68},
+	"sourceSize": {"w":41,"h":68}
+},
+"number-0":
+{
+	"frame": {"x":51,"y":144,"w":47,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":68},
+	"sourceSize": {"w":47,"h":68}
+},
+"number-1":
+{
+	"frame": {"x":464,"y":124,"w":20,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":20,"h":62},
+	"sourceSize": {"w":20,"h":62}
+},
+"number-2":
+{
+	"frame": {"x":1,"y":144,"w":48,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":48,"h":68},
+	"sourceSize": {"w":48,"h":68}
+},
+"number-3":
+{
+	"frame": {"x":243,"y":138,"w":44,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":44,"h":68},
+	"sourceSize": {"w":44,"h":68}
+},
+"number-4":
+{
+	"frame": {"x":348,"y":1,"w":46,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":62},
+	"sourceSize": {"w":46,"h":62}
+},
+"number-5":
+{
+	"frame": {"x":306,"y":205,"w":43,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":68},
+	"sourceSize": {"w":43,"h":68}
+},
+"number-6":
+{
+	"frame": {"x":197,"y":68,"w":45,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":45,"h":68},
+	"sourceSize": {"w":45,"h":68}
+},
+"number-7":
+{
+	"frame": {"x":439,"y":1,"w":36,"h":62},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":62},
+	"sourceSize": {"w":36,"h":62}
+},
+"number-8":
+{
+	"frame": {"x":54,"y":1,"w":47,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":47,"h":68},
+	"sourceSize": {"w":47,"h":68}
+},
+"number-9":
+{
+	"frame": {"x":202,"y":1,"w":46,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":46,"h":65},
+	"sourceSize": {"w":46,"h":65}
+},
+"symbol-at":
+{
+	"frame": {"x":379,"y":65,"w":44,"h":65},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":44,"h":65},
+	"sourceSize": {"w":44,"h":65}
+},
+"symbol-bang":
+{
+	"frame": {"x":477,"y":1,"w":9,"h":61},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":61},
+	"sourceSize": {"w":9,"h":61}
+},
+"symbol-dollar":
+{
+	"frame": {"x":334,"y":65,"w":43,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":68},
+	"sourceSize": {"w":43,"h":68}
+},
+"symbol-hash":
+{
+	"frame": {"x":334,"y":135,"w":43,"h":68},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":68},
+	"sourceSize": {"w":43,"h":68}
+},
+"symbol-minus":
+{
+	"frame": {"x":100,"y":205,"w":37,"h":5},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":37,"h":5},
+	"sourceSize": {"w":37,"h":5}
+},
+"symbol-percentage":
+{
+	"frame": {"x":112,"y":212,"w":43,"h":61},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":43,"h":61},
+	"sourceSize": {"w":43,"h":61}
+},
+"symbol-plus":
+{
+	"frame": {"x":1,"y":214,"w":36,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":36,"h":56},
+	"sourceSize": {"w":36,"h":56}
+},
+"symbol-slash":
+{
+	"frame": {"x":39,"y":214,"w":35,"h":55},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":55},
+	"sourceSize": {"w":35,"h":55}
+},
+"vfd-cell-off":
+{
+	"frame": {"x":1,"y":1,"w":51,"h":71},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":51,"h":71},
+	"sourceSize": {"w":51,"h":71}
+}},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "sprite-sheet.png",
+	"format": "RGBA8888",
+	"size": {"w":494,"h":274},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:18b07e6a33c0a19594d565044d786625:5a4984003f753ab25762e0daa1f753e5:4cb984b15aa0f50ff47c18de1fc08384$"
+}
+}
