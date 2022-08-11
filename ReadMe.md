@@ -1209,9 +1209,20 @@ https://www.ebay.com/itm/113577313133
 
 ![](./lab-notes-images/image016.png)
 
-# Spritesheets!
+# Sprite Sheets!
 
 Updated my prototype code to use sprite sheets compiled with TexturePacker rather than individual images. Makes the code
 simpler and cleaner.
 
 ![](./lab-notes-images/image017.png)
+
+# Code cleanup
+
+I cleaned up my prototype code. Created a spritesheet module, also created a VFD module and moved all the code that
+deals with the virtual VFD display in to that. Started creating a chore list abstraction.
+
+# Chores List Sketch
+
+Created an outline sketch of what the chores list will look like in a python module. Added a json to test out my ideas.
+
+Lots of structure changes to make the code cleaner.

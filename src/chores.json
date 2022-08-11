@@ -1,9 +1,6 @@
 {
   "chores": [
     {
-        "task": "Water plants (except Rosemary)"
-    },
-    {
         "task": "Water Basil plants",
         "dayparts": ["evening"]
     },
@@ -14,8 +11,7 @@
     },
     {
         "task": "Empty dishwasher",
-        "weekly": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "dayparts": ["morning"]
+        "weekly": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
     },
     {
         "task": "Load dishwasher",
@@ -41,7 +37,7 @@
     },
     {
         "task": "Give dog flea medication",
-        "monthly": "15",
+        "monthly": ["15"],
         "urgency": "days"
     },
     {
@@ -51,32 +47,32 @@
     },
     {
         "task": "Renew CostCo membership",
-        "yearly": "11/15",
+        "yearly": ["november"],
         "urgency": "month"
     },
     {
         "task": "Call your mother",
-        "yearly": ["12/24", "11/24","9/11","8/11", "7/4", "3/2", "1/2"],
+        "yearly": ["january", "march","may","july", "september", "november", "december"],
         "urgency": "week"
     },
     {
         "task": "Bathe dog",
-        "monthly": "first Tuesday",
+        "monthly": ["2"],
         "urgency": "week"
     },
     {
         "task": "Browse flea market",
-        "monthly": ["second sunday", "last sunday"],
+        "monthly": ["2","24"],
         "urgency": "immediate"
     },
     {
         "task": "Pay gas bill",
-        "monthly": "10",
+        "monthly": ["10"],
         "urgency": "week"
     },
     {
         "task": "Pay car insurance",
-        "monthly": "12",
+        "monthly": ["12"],
         "urgency": "week"
     }
     ]
