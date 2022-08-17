@@ -83,7 +83,8 @@ green for task complete. You can buy a strand of 25 LEDs that are individually a
 A user connects to the web server running on the activity center using their computer or smartphone, and through a
 simple task interface, edits, adds or removes tasks/chores to be done.
 
-The kind of tasks that it tracks are simple ones such as "empty the trash cans" or "move the laundry along" or "water the
+The kind of tasks that it tracks are simple ones such as "empty the trash cans" or "move the laundry along" or "water
+the
 plants." Chores you know you need to do on a regular basis to act as a functional adult, but may procrastinate on due to
 ADD/ADHD or "just don't wanna/just don't feel like it."
 
@@ -1227,7 +1228,10 @@ Created an outline sketch of what the chores list will look like in a python mod
 Lots of structure changes to make the code cleaner.
 
 # Toggle Switch Arrived
-Well packaged. Arrived safely after almost four weeks in transit. Case looks like molded or 3D printed. Has a five wire JST in the box for easy wire up. Custom circuit board. Spring loaded return. Nice and clicky. Long throw on metal toggle with a good feel. High quality.
+
+Well packaged. Arrived safely after almost four weeks in transit. Case looks like molded or 3D printed. Has a five wire
+JST in the box for easy wire up. Custom circuit board. Spring loaded return. Nice and clicky. Long throw on metal toggle
+with a good feel. High quality.
 
 # Code Review
 
@@ -1236,24 +1240,40 @@ Well packaged. Arrived safely after almost four weeks in transit. Case looks lik
 Mao doing a quick code review and critiquing my slipshod soldering work.
 
 # Toggle Switch
-Found a few minutes in the day to wire up the toggle switch directly to the bench power supply to verify it works. And it works beautifully. Time to buy some more.
+
+Found a few minutes in the day to wire up the toggle switch directly to the bench power supply to verify it works. And
+it works beautifully. Time to buy some more.
 
 ![](./lab-notes-images/image019.png)
 
-
 ## Switch Power
-I gave it 5v at 200ma max for both the driving current and the arming/latching current. Has a good solid connection when armed. And easily flicked off manually even when armed.
+
+I gave it 5v at 200ma max for both the driving current and the arming/latching current. Has a good solid connection when
+armed. And easily flicked off manually even when armed.
 
 # Three Games
-I am considering putting three dedicated custom games on the display, with VFD style graphics. One of the games is ready to go from an earlier project, just needs a little encouragement to port it to the raspberry pi. Will need to figure out two more. I want them to be simple, easy controls, engaging, but not something that requires hours to play.
+
+I am considering putting three dedicated custom games on the display, with VFD style graphics. One of the games is ready
+to go from an earlier project, just needs a little encouragement to port it to the raspberry pi. Will need to figure out
+two more. I want them to be simple, easy controls, engaging, but not something that requires hours to play.
 
 # Game buttons
-If I put any games on the device I want to have dedicated arcade push buttons just for the games. I don't want any of the other controls used for the games. All buttons should be modeless.
+
+If I put any games on the device I want to have dedicated arcade push buttons just for the games. I don't want any of
+the other controls used for the games. All buttons should be modeless.
 
 # Soft Power Button
-Need to find a good quality soft power button that will send a message to gracefully shut down the Rpi. I could easily do this with a basic momentary switch (which is all a soft power button is), but I probably want to find something nicer than that.
+
+Need to find a good quality soft power button that will send a message to gracefully shut down the Rpi. I could easily
+do this with a basic momentary switch (which is all a soft power button is), but I probably want to find something nicer
+than that.
 
 ![](./lab-notes-images/image020.jpg)
 
-Sparkfun has a breakout board that does exactly that. https://www.sparkfun.com/products/17870 No need to reinvent the wheel on this.
+Sparkfun has a breakout board that does exactly that. https://www.sparkfun.com/products/17870 No need to reinvent the
+wheel on this.
 
+# JSON Chores
+
+Made a JSON file with a bunch of example chores in them, and now loading that JSON file in to python as a dict, which
+then gets converted in to a Chore object. Added basic functtionality for adding saving the active chores list.
