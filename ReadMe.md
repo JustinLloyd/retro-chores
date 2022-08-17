@@ -1277,3 +1277,13 @@ wheel on this.
 
 Made a JSON file with a bunch of example chores in them, and now loading that JSON file in to python as a dict, which
 then gets converted in to a Chore object. Added basic functtionality for adding saving the active chores list.
+
+# New Flitepal switches in the works
+
+Flitepal toggle switch maker got back to me. Asking how much I want to spend. Has a new toggle switch in the works that
+has a metal refinforced case. Looks nice. Hopefully the price doesn't increase it. The model I purchased is no longer
+being made apparently. No word on when new model will be available for purchase. Got sent a picture of new model.
+
+![](./lab-notes-images/image021.png)
+
+Want!
