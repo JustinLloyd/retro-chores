@@ -28,8 +28,7 @@ very least appear either red in the untoggled state and green in the toggled sta
 
 The device runs a simple website that lets you program a list of individual tasks or chores, and when these tasks should
 be reset, both on time of day and day of week. E.g.Button 1 says "Water Rosemary" and reset at 6AM every Friday. Button
-1 says "Water Rosemary" and reset at 6AM every
-Monday."
+1 says "Water Rosemary" and reset at 6AM every Monday.
 
 This device gives you a list of tasks or chores that you need to do, and a physical interaction with the device when you
 complete the task.
@@ -84,11 +83,11 @@ green for task complete. You can buy a strand of 25 LEDs that are individually a
 A user connects to the web server running on the activity center using their computer or smartphone, and through a
 simple task interface, edits, adds or removes tasks/chores to be done.
 
-The kind of tasks that it tracks are simple ones such as "empty the trash cans" or"move the laundry along" or "water the
+The kind of tasks that it tracks are simple ones such as "empty the trash cans" or "move the laundry along" or "water the
 plants." Chores you know you need to do on a regular basis to act as a functional adult, but may procrastinate on due to
 ADD/ADHD or "just don't wanna/just don't feel like it."
 
-Tasks can be set up to be one shots on a particular date, though generally the activity center isn't for that. Tasks can
+Tasks can be set up to be one-shots on a particular date, though generally the activity center isn't for that. Tasks can
 be set up to repeat every day, e.g. water the basil, with a window of time when they need to be addressed, e.g. 9AM
 every morning. Tasks can be set up to repeat every X days or every Tuesday (because Tuesday is trash collection day) or
 every N days (water the rosemary every four days). Tasks are the automatic reminder to do something, a visual indicator
@@ -1226,3 +1225,35 @@ deals with the virtual VFD display in to that. Started creating a chore list abs
 Created an outline sketch of what the chores list will look like in a python module. Added a json to test out my ideas.
 
 Lots of structure changes to make the code cleaner.
+
+# Toggle Switch Arrived
+Well packaged. Arrived safely after almost four weeks in transit. Case looks like molded or 3D printed. Has a five wire JST in the box for easy wire up. Custom circuit board. Spring loaded return. Nice and clicky. Long throw on metal toggle with a good feel. High quality.
+
+# Code Review
+
+![](./lab-notes-images/image018.png)
+
+Mao doing a quick code review and critiquing my slipshod soldering work.
+
+# Toggle Switch
+Found a few minutes in the day to wire up the toggle switch directly to the bench power supply to verify it works. And it works beautifully. Time to buy some more.
+
+![](./lab-notes-images/image019.png)
+
+
+## Switch Power
+I gave it 5v at 200ma max for both the driving current and the arming/latching current. Has a good solid connection when armed. And easily flicked off manually even when armed.
+
+# Three Games
+I am considering putting three dedicated custom games on the display, with VFD style graphics. One of the games is ready to go from an earlier project, just needs a little encouragement to port it to the raspberry pi. Will need to figure out two more. I want them to be simple, easy controls, engaging, but not something that requires hours to play.
+
+# Game buttons
+If I put any games on the device I want to have dedicated arcade push buttons just for the games. I don't want any of the other controls used for the games. All buttons should be modeless.
+
+# Soft Power Button
+Need to find a good quality soft power button that will send a message to gracefully shut down the Rpi. I could easily do this with a basic momentary switch (which is all a soft power button is), but I probably want to find something nicer than that.
+
+![](./lab-notes-images/image020.jpg)
+
+Sparkfun has a breakout board that does exactly that. https://www.sparkfun.com/products/17870 No need to reinvent the wheel on this.
+
