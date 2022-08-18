@@ -1292,7 +1292,7 @@ Want!
 
 I either put another JST header on the flitepal wire tail that came with it, so I can plug it in to the project circuit
 board (will do this in final build definitley), or I take the wire tail that came with the switch and set it up to use
-male dupont plugs/connectors for breadboarding. Uh forgot name. JST-QWIC. Mini molex. Holy hell. Brain fart. Or I wire
+male dupont plugs/connectors for breadboarding. Uh forgot name. ~~JST-QWIC.~~ Mini molex 2510. Holy hell. Brain fart. Or I wire
 it up with some IDC connector for both breadboarding and final build.
 
 I think I should order some breadboard mini molex plugs from mouser. And put a molex plug on the wire tail from the
