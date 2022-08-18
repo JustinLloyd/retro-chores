@@ -1309,8 +1309,8 @@ Oh look, they do…
 
 Hmm.. I need Molex socket (female) not plug (male).
 
-I specifically need a 2510 5-pin male & female connectors. I can purchase 100 from amazon for $60 or 10 from ebay for $6
-+ $6 shipping.
+I specifically need a 2510 5-pin male & female connectors. I can purchase 100 from amazon for $60 or 10 from ebay for
+$6 + $6 shipping.
 
 Let me think about this. I need to wire up a number of arcade buttons, a soft switch, a dozen LEDs, and a dozen toggle
 switches at the very least. I should most certainly strive to make everything pluggable.

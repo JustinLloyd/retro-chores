@@ -40,6 +40,7 @@ chores = ChoreWrangler()
 
 for count,chore in enumerate(chores.known_chores):
     vfd.print(chore.task.upper(), count)
+    print(chore.task.upper(), count)
 # vfd.print('CLEAN UPSTAIRS\nCAT LITTER', 1)
 # vfd.print('WATER BASIL PLANTS', 2)
 # vfd.print('WATER ROSEMARY PLANT', 3)
