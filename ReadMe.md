@@ -1287,3 +1287,82 @@ being made apparently. No word on when new model will be available for purchase.
 ![](./lab-notes-images/image021.png)
 
 Want!
+
+# JST or Mini Molex Headers
+
+I either put another JST header on the flitepal wire tail that came with it, so I can plug it in to the project circuit
+board (will do this in final build definitley), or I take the wire tail that came with the switch and set it up to use
+male dupont plugs/connectors for breadboarding. Uh forgot name. JST-QWIC. Mini molex. Holy hell. Brain fart. Or I wire
+it up with some IDC connector for both breadboarding and final build.
+
+I think I should order some breadboard mini molex plugs from mouser. And put a molex plug on the wire tail from the
+toggle switch.
+
+Sparkfun has 3pin JST to breadboard already. Of course they do. I suspect they have a five wire version too. Can make my
+own, or just buy theirs.
+
+![](./lab-notes-images/image022.png)
+
+Oh look, they do…
+
+![](./lab-notes-images/image023.png)
+
+Hmm.. I need Molex socket (female) not plug (male).
+
+I specifically need a 2510 5-pin male & female connectors. I can purchase 100 from amazon for $60 or 10 from ebay for $6
++ $6 shipping.
+
+Let me think about this. I need to wire up a number of arcade buttons, a soft switch, a dozen LEDs, and a dozen toggle
+switches at the very least. I should most certainly strive to make everything pluggable.
+
+I can buy the female plastic housing from aliexpress, in packs of 20, for 81 cents
+each. https://www.aliexpress.com/item/2255800502852143.html
+
+![](./lab-notes-images/image024.png)
+
+I also need the male side of the connector, and the mae & female metal contacts of course.
+
+I can buy 100 male plastic connectors for $4, 100 female plastic connectors for $4, and 200 metal pins for about $2.
+
+Here we go, packs of 10 https://www.aliexpress.com/item/2255800502750349.html for $1.5 each
+
+![](./lab-notes-images/image025.png)
+
+$15 for 100 connectors.
+
+Might buy some extras as I ill probably use 50 or more per device.
+
+12 toggle switches. 12 LEDs. Soft switch. A half dozen arcade buttons. A half dozen breakout boards if I don't design my
+own circuit. (Thinking the electronic LEGO route is the most expedient option).
+
+12+12+1+6+6=37
+
+Probably 35 to 50 connectors per device.
+
+Let's order 100 of each, in each size, for aliexpress.
+
+Aliexpress cart seems to be erroring out in firefox. I'll look in to it later.
+
+Here's the prices per set of 10, 0.92+1.11+1.30+1.49+1.67=6.49
+6.49*10=64.9
+
+For under $70 I can get 100 of each size, 2 pin, 3 pin, 4 pin, 5 pin, 6 pin.
+
+Which should more than adequately cover all of my needs for this build.
+
+Alternatively, I buy 50 of each. But is it worth trying to save $35?!?
+
+You can also buy these connectors with the wires already crimped.
+
+https://www.aliexpress.com/item/2251832071900046.html
+200 female connectors with pigtail wires for $90. Seems a little pricey, but makes it easier.
+
+Will need a crimping tool for this. Added one to the amazon cart.
+
+I could also use JST connectors on the circuit board.
+
+https://www.aliexpress.com/item/3256802535042449.html
+
+All different sizes, from 2 pin to 10 pin, with 26AWG 12" pig tails.
+
+
