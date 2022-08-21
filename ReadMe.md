@@ -1365,4 +1365,44 @@ https://www.aliexpress.com/item/3256802535042449.html
 
 All different sizes, from 2 pin to 10 pin, with 26AWG 12" pig tails.
 
+# Micro center
+I swung by micro center in orange county today (and also Woodcraft and Rockler to buy some power tools for my workshop). Picked up a two player arcade controller board that appears as a HID device over USB. That will be perfect for my arcade machine/rack mount build when I get around to it.
 
+I also picked up a "micro center arcade kit" (red) that contains a USB HID board, a number of arcade buttons, and an arcade joystcik.
+
+![](./lab-notes-images/image026.jpg)
+
+![](./lab-notes-images/image027.jpg)
+
+And that will plug in to the USB port on the Pi, which gives me a number of arcade buttons that I can use for the games I intend to make for this device.
+
+The two player control board I purchased for my arcade machine could also work for my jukebox build. It handles 22 separate buttons, and two joysticks, for a total of 30 inputs.
+
+# Software Development
+I've gotten the software quite far along, at least for the loading & saving chores, and the display of the chores on the screen. Next I need to add in some way to control the chores via the keyboard.
+
+## Toggle switch controller module
+I need to write a toggle switch controller module in python that will abstract away the underlying hardware of the toggle switch and any need for direct I/O.
+
+## LED controller module
+I also need a python module for the LEDs that abstract away the underlying hardware and I/O, but I think I should treat the LEDs just like a very simple display, either of 12 pixels or of 12 sprites, that can be easily turned on or off. Let's write a basic module that will interface with my hardware, and then we will go from there.
+
+## Virtual LED display
+I should write a module that will create a window with a virtual LED display on it. Pygame permits me to create two windows, so I can do that, and check if running on PC or Pi. If on PC, build that virtual LED display. Let's do that.
+
+## Virtual LED graphics
+I will need to create some graphics in AI for the virtual LEDs. They don't need to be fancy. Some simple RGB circles will work for now.
+
+## Virtual LED vs Real LED
+Now that I think about it, I don't need to create a virtual LED display for the PC and a real LED controller module for the Pi. I just simply need to create a LED display module, and then that module determines if it is running on the Pi or the PC. If it is on the Pi, it doesn't create a secondary display window and instead sends the commands for the LEDs over the I2C or GPIO pins. If the code is running on the PC, the code creates a secondary display window and shows some virtual LEDs that are controllable via blitted graphics.
+
+## Input controller vs toggle switch controller
+I am going to have a number of buttons on the device, toggle switches, arcade buttons, a soft power switch, some way to postpone or skip a task, so what I need is an input controller rather than a "toggle switch controller."
+
+## Toggle switch output
+I should also consider treating the toggle switch state as part of the display output as well. On the Pi, these would be physical toggle switches, but on the PC, it would be a third display for the toggle switch states.
+
+## Multiple display windows in pygame
+Here's a link to some sample code that demonstrates multiple display windows in pygame.
+
+https://github.com/pygame/pygame/blob/main/examples/video.py
