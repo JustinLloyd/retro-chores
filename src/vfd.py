@@ -1,8 +1,7 @@
-import os
-
 import pygame
 
 from src.spritesheet import Spritesheet
+from src.util import is_raspberrypi
 
 
 class VFD:
@@ -15,20 +14,16 @@ class VFD:
         self.character_stride = 54
         self.strip_stride = 88
         self.rank_stride = 154
-        self.pi = False
         self.cell_size = None
         self.cell_off = None
         self.displayinfo = None
         self.character_lookup = None
         self.spritesheet = None
         self.displayinfo = None
-        os.putenv('SDL_FBDEV', '/dev/fb0')
-        pygame.init()
         self.displayinfo = pygame.display.Info()
         print(f"Display size = {self.displayinfo.current_w}x{self.displayinfo.current_h}")
-        if self.displayinfo.current_w == 1100:
+        if is_raspberrypi():
             self.lcd = pygame.display.set_mode((1100, 3840))
-            self.pi = True
         else:
             self.lcd = pygame.display.set_mode((550, 1920))
 
@@ -160,8 +155,7 @@ class VFD:
             '%': {'img': self.spritesheet.get_by_name("symbol-percentage"), 'x': 0, 'y': 0},
         }
 
-        if not self.pi:
-            print("Not a raspberry pi")
+        if not is_raspberrypi():
             self.cell_off = self.resize(self.cell_off)
             for character in self.character_lookup:
                 self.character_lookup[character]['img'] = self.resize(self.character_lookup[character]['img'])
@@ -173,7 +167,5 @@ class VFD:
             self.character_stride /= 2
             self.strip_stride /= 2
             self.rank_stride /= 2
-        else:
-            print("Running on the raspberry pi")
 
         self.cell_size = self.cell_off.get_size()

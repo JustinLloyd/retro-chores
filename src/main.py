@@ -1,11 +1,12 @@
 # All code, images, text and other artifacts are copyright 2022 Justin Lloyd
 # All Rights Reserved
 # https://justin-lloyd.com
-
-
+import os
+import io
 from os import environ
 
 from src.chores import ChoreWrangler
+from src.led_strip_controller import LEDStripController
 from src.vfd import VFD
 
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
@@ -14,7 +15,10 @@ import sys
 import pygame
 from pygame.locals import *
 
+pi = False
+
 vfd: VFD
+vLEDStrip: LEDStripController
 
 
 def wait():
@@ -30,6 +34,11 @@ def wait():
 
 def init():
     global vfd
+    os.putenv('SDL_FBDEV', '/dev/fb0')
+    if pygame.get_sdl_version()[0] < 2:
+        raise SystemExit("This application  requires pygame 2 and SDL2.")
+
+    pygame.init()
     vfd = VFD()
     vfd.load_assets()
     vfd.cls()
@@ -38,7 +47,7 @@ def init():
 init()
 chores = ChoreWrangler()
 
-for count,chore in enumerate(chores.known_chores):
+for count, chore in enumerate(chores.known_chores.chores):
     vfd.print(chore.task.upper(), count)
     print(chore.task.upper(), count)
 # vfd.print('CLEAN UPSTAIRS\nCAT LITTER', 1)
