@@ -1,56 +1,8 @@
+import hashlib
+import time
 from enum import IntEnum
 
-
-class Urgency(IntEnum):
-    NONE = 0
-    IMMEDIATE = 1
-    DAYPART = 2
-    DAY = 3
-    DAYS = 4
-    WEEK = 5
-    WEEKS = 6
-    MONTH = 7
-    MONTHS = 8
-
-
-class Daypart(IntEnum):
-    NONE = 0
-    MORNING = 1
-    AFTERNOON = 2
-    EVENING = 3
-    NIGHT = 4
-
-
-class Day(IntEnum):
-    SUNDAY = 1
-    MONDAY = 2
-    TUESDAY = 3
-    WEDNESDAY = 4
-    THURSDAY = 5
-    FRIDAY = 6
-    SATURDAY = 7
-
-
-class Month(IntEnum):
-    JANUARY = 1
-    FEBRUARY = 2
-    MARCH = 3
-    APRIL = 4
-    MAY = 5
-    JUNE = 6
-    JULY = 7
-    AUGUST = 8
-    SEPTEMBER = 9
-    OCTOBER = 10
-    NOVEMBER = 11
-    DECEMBER = 12
-
-
-class Period(IntEnum):
-    DAILY = 1
-    WEEKLY = 2
-    MONTHLY = 3
-    YEARLY = 4
+from util import get_time, Period, Urgency, Daypart, Day, Month
 
 
 class Chore:
@@ -60,27 +12,86 @@ class Chore:
         self.dayparts = [Daypart.MORNING]
         self.urgency = Urgency.DAY
         self.occurences = []
+        self.created_at = get_time()
+        self.activated_at = None
+        self.completed_at = None
+        self.concluded_at = None
+        self.display_position = None
+        self.hash = self.calculate_hash(self)
 
-    def to_dict(self):
-        chore_dict = {
+    @staticmethod
+    def calculate_hash(chore):
+        return hashlib.md5(f'{chore.task}/{chore.period.name.lower()}/{chore.urgency.name.lower()}/{",".join([daypart.name.lower() for daypart in chore.dayparts])}'.encode('utf-8')).digest()
+
+    def to_dict(self) -> dict:
+        chore_data = {
             'task': self.task,
             'dayparts': [daypart.name.lower() for daypart in self.dayparts],
             'period': self.period.name.lower(),
-            'urgency': self.urgency.name.lower()
+            'urgency': self.urgency.name.lower(),
+            'created_at': self.created_at,
+            'completed_at': self.completed_at,
+            'activated_at': self.activated_at,
+            'display_position': self.display_position
         }
-        return chore_dict
+        return chore_data
+
+    def activate(self, display_position):
+        self.display_position = display_position
+        self.activated_at = get_time()
+
+    def conmplete(self):
+        self.completed_at = get_time()
+
+    def conclude(self):
+        self.concluded_at = get_time()
+        self.display_position = None
+
+    def display_at(self, display_position):
+        self.display_position = display_position
+
+    def is_active(self):
+        if self.activated_at is not None:
+            return True
+        return False
+
+    def is_overdue(self):
+        if self.activated_at is None:
+            return False
+        timespan = get_time() - self.activated_at
+        if timespan < 1000:
+            return False
+        return True
+
+    def is_complete(self):
+        if self.completed_at is None:
+            return False
+        return True
+
+    def is_concluded(self):
+        if self.completed_at is None:
+            return False
+        timespan = get_time() - self.completed_at
+        if timespan < 1000:
+            return False
+        return True
 
     @staticmethod
-    def from_dict(chore_dict):
+    def from_dict(chore_data: dict):
         chore = Chore()
         chore.period = Period.DAILY
         chore.urgency = Urgency.DAYPART
         chore.dayparts = [Daypart.MORNING]
         chore.occurences = []
-        chore.task = chore_dict['task']
-        if 'dayparts' in chore_dict:
+        chore.task = chore_data['task']
+        chore.created_at = chore_data['created_at'] if 'created_at' in chore_data else None
+        chore.activated_at = chore_data['activated_at'] if 'activated_at' in chore_data else None
+        chore.completed_at = chore_data['completed_at'] if 'completed_at' in chore_data else None
+        chore.display_position = chore_data['display_position'] if 'display_position' in chore_data else None
+
+        if 'dayparts' in chore_data:
             chore.dayparts = []
-            for daypart in chore_dict['dayparts']:
+            for daypart in chore_data['dayparts']:
                 if daypart == 'morning':
                     chore.dayparts.append(Daypart.MORNING)
                 elif daypart == 'afternoon':
@@ -90,10 +101,10 @@ class Chore:
                 elif daypart == 'night':
                     chore.dayparts.append(Daypart.NIGHT)
                 else:
-                    print(f"Don't know what to do with {daypart} in {chore_dict['task']}")
+                    print(f"Don't know what to do with {daypart} in {chore_data['task']}")
 
-        if 'weekly' in chore_dict:
-            for occurence in chore_dict['weekly']:
+        if 'weekly' in chore_data:
+            for occurence in chore_data['weekly']:
                 if occurence == 'sunday':
                     chore.occurences.append(Day.SUNDAY)
                 elif occurence == 'sunday':
@@ -110,13 +121,13 @@ class Chore:
                     chore.occurences.append(Day.SATURDAY)
             chore.period = Period.WEEKLY
             chore.urgency = Urgency.DAY
-        elif 'monthly' in chore_dict:
-            for occurence in chore_dict['monthly']:
+        elif 'monthly' in chore_data:
+            for occurence in chore_data['monthly']:
                 chore.occurences.append(int(occurence))
             chore.period = Period.MONTHLY
             chore.urgency = Urgency.WEEK
-        elif 'yearly' in chore_dict:
-            for occurence in chore_dict['yearly']:
+        elif 'yearly' in chore_data:
+            for occurence in chore_data['yearly']:
                 if occurence == 'january':
                     chore.occurences.append(Month.JANUARY)
                 elif occurence == 'february':
@@ -144,24 +155,25 @@ class Chore:
             chore.period = Period.YEARLY
             chore.urgency = Urgency.MONTH
 
-        if 'urgency' in chore_dict:
-            if chore_dict['urgency'] == 'immediate':
+        if 'urgency' in chore_data:
+            if chore_data['urgency'] == 'immediate':
                 chore.urgency = Urgency.IMMEDIATE
-            elif chore_dict['urgency'] == 'none':
+            elif chore_data['urgency'] == 'none':
                 chore.urgency = Urgency.NONE
-            elif chore_dict['urgency'] == 'daypart':
+            elif chore_data['urgency'] == 'daypart':
                 chore.urgency = Urgency.DAYPART
-            elif chore_dict['urgency'] == 'day':
+            elif chore_data['urgency'] == 'day':
                 chore.urgency = Urgency.DAY
-            elif chore_dict['urgency'] == 'days':
+            elif chore_data['urgency'] == 'days':
                 chore.urgency = Urgency.DAYS
-            elif chore_dict['urgency'] == 'week':
+            elif chore_data['urgency'] == 'week':
                 chore.urgency = Urgency.WEEK
-            elif chore_dict['urgency'] == 'weeks':
+            elif chore_data['urgency'] == 'weeks':
                 chore.urgency = Urgency.WEEKS
-            elif chore_dict['urgency'] == 'month':
+            elif chore_data['urgency'] == 'month':
                 chore.urgency = Urgency.MONTH
-            elif chore_dict['urgency'] == 'months':
+            elif chore_data['urgency'] == 'months':
                 chore.urgency = Urgency.MONTHS
 
+        chore.hash = chore.calculate_hash(chore)
         return chore
