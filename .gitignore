@@ -6,3 +6,4 @@
 /pyvenv.cfg
 /src/data/active-chores.json
 /src/data/pending-chores.json
+/src/__pycache__
