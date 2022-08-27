@@ -2,12 +2,12 @@
 # All Rights Reserved
 # https://justin-lloyd.com
 import os
-import io
 from os import environ
 
-from src.chores import ChoreWrangler
+from src.chores_wrangler import ChoreWrangler
 from src.led_strip_controller import LEDStripController
 from src.vfd import VFD
+from util import should_clean_up_chores
 
 environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 
@@ -15,53 +15,105 @@ import sys
 import pygame
 from pygame.locals import *
 
-pi = False
-
 vfd: VFD
+chores: ChoreWrangler
 vLEDStrip: LEDStripController
 
 
-def wait():
+def game_loop():
+    clock = pygame.time.Clock()
     while True:
-        for event in pygame.event.get():
-            if event.type == QUIT:
-                pygame.quit()
-                sys.exit()
-            if event.type == KEYDOWN and event.key == K_ESCAPE:
-                pygame.quit()
-                sys.exit()
+        process_input()
+        run_game_logic()
+        update_display()
+        clock.tick(60)
+
+
+def run_game_logic():
+    # rescan the known chores json
+    updated_slots = chores.process_chore_logic()
+    for idx in updated_slots:
+        active_chore = chores.active_chores.get(idx)
+        if active_chore is None:
+            vfd.clr(idx)
+            # disarm the toggle switch
+            # turn off the green LED
+        else:
+            activate_chore(active_chore)
+            # arm the to ggle switch
+            # illuminate the red LED
+    # remove chores from concluded chores list
+    # add new pending chores
+    # add new active chores
+    pass
+
+
+def process_input():
+    events = pygame.event.get()
+    for event in events:
+        if event.type == QUIT:
+            pygame.quit()
+            sys.exit()
+        if event.type == KEYDOWN:
+            if event.key == K_ESCAPE:
+                shutdown()
+        if event.type == KEYUP:
+
+            if event.key == K_F1:
+                # complete task #1
+                pass
+
+
+def activate_chore(chore):
+    vfd.print(chore.task.upper(), chore.display_position)
+
+
+def update_display():
+    pygame.display.update()
 
 
 def init():
     global vfd
+    global chores
+
+    if should_clean_up_chores():
+        os.makedirs('./data', exist_ok=True)
+        if os.path.exists('./data/active-chores.json'):
+            os.remove('./data/active-chores.json')
+        if os.path.exists('./data/concluded-chores.json'):
+            os.remove('./data/concluded-chores.json')
+        if os.path.exists('./data/pending-chores.json'):
+            os.remove('./data/pending-chores.json')
+
     os.putenv('SDL_FBDEV', '/dev/fb0')
     if pygame.get_sdl_version()[0] < 2:
-        raise SystemExit("This application  requires pygame 2 and SDL2.")
-
+        raise SystemExit("This application requires pygame 2 and SDL2.")
+    chores = ChoreWrangler()
     pygame.init()
     vfd = VFD()
     vfd.load_assets()
     vfd.cls()
+    active_chores = chores.active_chores.get_active_chores()
+    for chore in active_chores:
+        activate_chore(chore)
 
 
-init()
-chores = ChoreWrangler()
+def shutdown():
+    pygame.display.quit()
+    pygame.quit()
+    sys.exit()
 
-for count, chore in enumerate(chores.known_chores.chores):
-    vfd.print(chore.task.upper(), count)
-    print(chore.task.upper(), count)
-# vfd.print('CLEAN UPSTAIRS\nCAT LITTER', 1)
-# vfd.print('WATER BASIL PLANTS', 2)
-# vfd.print('WATER ROSEMARY PLANT', 3)
-# vfd.print('ADVANCE LAUNDRY', 4)
-# vfd.print('EMPTY DISHWASHER', 5)
-# vfd.print('LOAD DISHWASHER', 6)
-# vfd.print('EMPTY RECYCLING BIN', 7)
-# vfd.print('WASH MICROWAVE', 8)
-# vfd.print('CHANGE BED LINENS', 9)
 
-vfd.flush()
-wait()
-pygame.display.quit()
-pygame.quit()
-exit()
+def main():
+    init()
+
+    # for count, chore in enumerate(chores.known_chores._chores):
+    #     vfd.print(chore.task.upper(), count)
+    #     print(chore.task.upper(), count)
+
+    # vfd.flush()
+    game_loop()
+
+
+if __name__ == '__main__':
+    main()
