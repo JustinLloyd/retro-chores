@@ -1292,7 +1292,8 @@ Want!
 
 I either put another JST header on the flitepal wire tail that came with it, so I can plug it in to the project circuit
 board (will do this in final build definitley), or I take the wire tail that came with the switch and set it up to use
-male dupont plugs/connectors for breadboarding. Uh forgot name. ~~JST-QWIC.~~ Mini molex 2510. Holy hell. Brain fart. Or I wire
+male dupont plugs/connectors for breadboarding. Uh forgot name. ~~JST-QWIC.~~ Mini molex 2510. Holy hell. Brain fart. Or
+I wire
 it up with some IDC connector for both breadboarding and final build.
 
 I think I should order some breadboard mini molex plugs from mouser. And put a molex plug on the wire tail from the
@@ -1366,43 +1367,376 @@ https://www.aliexpress.com/item/3256802535042449.html
 All different sizes, from 2 pin to 10 pin, with 26AWG 12" pig tails.
 
 # Micro center
-I swung by micro center in orange county today (and also Woodcraft and Rockler to buy some power tools for my workshop). Picked up a two player arcade controller board that appears as a HID device over USB. That will be perfect for my arcade machine/rack mount build when I get around to it.
 
-I also picked up a "micro center arcade kit" (red) that contains a USB HID board, a number of arcade buttons, and an arcade joystcik.
+I swung by micro center in orange county today (and also Woodcraft and Rockler to buy some power tools for my workshop).
+Picked up a two player arcade controller board that appears as a HID device over USB. That will be perfect for my arcade
+machine/rack mount build when I get around to it.
+
+I also picked up a "micro center arcade kit" (red) that contains a USB HID board, a number of arcade buttons, and an
+arcade joystcik.
 
 ![](./lab-notes-images/image026.jpg)
 
 ![](./lab-notes-images/image027.jpg)
 
-And that will plug in to the USB port on the Pi, which gives me a number of arcade buttons that I can use for the games I intend to make for this device.
+And that will plug in to the USB port on the Pi, which gives me a number of arcade buttons that I can use for the games
+I intend to make for this device.
 
-The two player control board I purchased for my arcade machine could also work for my jukebox build. It handles 22 separate buttons, and two joysticks, for a total of 30 inputs.
+The two player control board I purchased for my arcade machine could also work for my jukebox build. It handles 22
+separate buttons, and two joysticks, for a total of 30 inputs.
 
 # Software Development
-I've gotten the software quite far along, at least for the loading & saving chores, and the display of the chores on the screen. Next I need to add in some way to control the chores via the keyboard.
+
+I've gotten the software quite far along, at least for the loading & saving chores, and the display of the chores on the
+screen. Next I need to add in some way to control the chores via the keyboard.
 
 ## Toggle switch controller module
-I need to write a toggle switch controller module in python that will abstract away the underlying hardware of the toggle switch and any need for direct I/O.
+
+I need to write a toggle switch controller module in python that will abstract away the underlying hardware of the
+toggle switch and any need for direct I/O.
 
 ## LED controller module
-I also need a python module for the LEDs that abstract away the underlying hardware and I/O, but I think I should treat the LEDs just like a very simple display, either of 12 pixels or of 12 sprites, that can be easily turned on or off. Let's write a basic module that will interface with my hardware, and then we will go from there.
+
+I also need a python module for the LEDs that abstract away the underlying hardware and I/O, but I think I should treat
+the LEDs just like a very simple display, either of 12 pixels or of 12 sprites, that can be easily turned on or off.
+Let's write a basic module that will interface with my hardware, and then we will go from there.
 
 ## Virtual LED display
-I should write a module that will create a window with a virtual LED display on it. Pygame permits me to create two windows, so I can do that, and check if running on PC or Pi. If on PC, build that virtual LED display. Let's do that.
+
+I should write a module that will create a window with a virtual LED display on it. Pygame permits me to create two
+windows, so I can do that, and check if running on PC or Pi. If on PC, build that virtual LED display. Let's do that.
 
 ## Virtual LED graphics
-I will need to create some graphics in AI for the virtual LEDs. They don't need to be fancy. Some simple RGB circles will work for now.
+
+I will need to create some graphics in AI for the virtual LEDs. They don't need to be fancy. Some simple RGB circles
+will work for now.
 
 ## Virtual LED vs Real LED
-Now that I think about it, I don't need to create a virtual LED display for the PC and a real LED controller module for the Pi. I just simply need to create a LED display module, and then that module determines if it is running on the Pi or the PC. If it is on the Pi, it doesn't create a secondary display window and instead sends the commands for the LEDs over the I2C or GPIO pins. If the code is running on the PC, the code creates a secondary display window and shows some virtual LEDs that are controllable via blitted graphics.
+
+Now that I think about it, I don't need to create a virtual LED display for the PC and a real LED controller module for
+the Pi. I just simply need to create a LED display module, and then that module determines if it is running on the Pi or
+the PC. If it is on the Pi, it doesn't create a secondary display window and instead sends the commands for the LEDs
+over the I2C or GPIO pins. If the code is running on the PC, the code creates a secondary display window and shows some
+virtual LEDs that are controllable via blitted graphics.
 
 ## Input controller vs toggle switch controller
-I am going to have a number of buttons on the device, toggle switches, arcade buttons, a soft power switch, some way to postpone or skip a task, so what I need is an input controller rather than a "toggle switch controller."
+
+I am going to have a number of buttons on the device, toggle switches, arcade buttons, a soft power switch, some way to
+postpone or skip a task, so what I need is an input controller rather than a "toggle switch controller."
 
 ## Toggle switch output
-I should also consider treating the toggle switch state as part of the display output as well. On the Pi, these would be physical toggle switches, but on the PC, it would be a third display for the toggle switch states.
+
+I should also consider treating the toggle switch state as part of the display output as well. On the Pi, these would be
+physical toggle switches, but on the PC, it would be a third display for the toggle switch states.
 
 ## Multiple display windows in pygame
+
 Here's a link to some sample code that demonstrates multiple display windows in pygame.
 
 https://github.com/pygame/pygame/blob/main/examples/video.py
+
+# Repairing PB-507
+
+This page has the socket I need to repair my PB-507
+
+https://www.alibaba.com/product-detail/IEC320-C14-JR-101-1F-screw_62566524563.html
+
+![](./lab-notes-images/image028.png)
+
+Which we can clearly see has the same pin outs as the one in the PB-507
+
+Unfortunately I cannot locate this socket on aliexpress from that seller.
+
+I may write to global industries, manufacturer of the pb-507,and see if I can get them to ship me a replacement socket.
+
+I stand corrected, here is a seller with them:
+
+https://www.aliexpress.com/item/3256804149514259.html?spm=a2g0o.productlist.0.0.44be6db1z9M164&algo_pvid=da7b8248-71f8-4649-8c35-b1a7e0062dca&algo_exp_id=da7b8248-71f8-4649-8c35-b1a7e0062dca-0&pdp_ext_f=%7B%22sku_id%22%3A%2212000028805307169%22%7D&pdp_npi=2%40dis%21USD%214.1%214.1%21%21%21%21%21%40210318c916612493266805512ef4f4%2112000028805307169%21sea&curPageLogUid=aeMF7vNp27Ox
+
+![](./lab-notes-images/image029.png)
+
+It costs 10x as much as on alibaba, but I am okay with that.
+
+I think I will order that tomorrow, along with a bunch of molex plugs.
+
+# Long ribbon cable
+
+I need to purchase, or make, a long 40 pin ribbon cable with IDC connectors on each end.
+
+# Crocodile clips with dupont connectors
+
+I need to pick up some crocodile clips with dpont connectors on them, male & female. I don't seem to have any in stock.
+
+# Faking toggle switches
+
+# Toggle switch unlatching incorrectly
+
+# Non-latching toggle switches
+
+If there is no chore displayed on that light of the VFD then the toggle switch should not be energized and cannot be
+latched.
+
+# Skip vs Postpone
+
+To postpone a task means to postpone it temporarily, perhaps to the next day part or day or week or whatever other
+period I desire.
+
+To skip a task means to skip it completely, and not have the task repeat until the next time it needs to repeat.
+
+# Aliexpress order placed
+
+Ordered some banana plugs with various connectors, some crocodile clips with dupont ends, about 50 each of the KF2510
+plugs, a bunch of JST plugs.
+
+# Pending list is a queue
+
+Kinda. The python queue object isn't exactly what I want, so I am using a list that appends (pushes) on the end and
+removes (pops) from the front. Not ideal, but speed isn't an issue.
+
+# Wrapping functionality of chore handlers/managers
+
+I have different managers that handle the chores as they go through various states. Known chores are pretty much static
+and stored on a simple list. Concluded chores are old chores we no longer care about. Pending chores are a queue. Active
+chores are a fixed length array with fixed positions for each chore. I've put these chore managers in to their own
+classes, and then wrapped the functionality of what is a list in some functions that dissuade the developer (that would
+be me) from directly accessing the chores on the lists and instead go through accessor functions.
+
+# Ivan and FlitePal
+
+Negotiated with Ivan over at Flitepal for 25 toggle switches. These are the newer model too.
+
+Ordering 25 switches!
+
+![](./lab-notes-images/image030.png)
+
+# Driving the toggle switches
+
+Obviously the toggle switches can switch whatever voltage and current we want, 3.3v or 5v, these will simply be
+connected to the GPIO expanders, couple of resistors to pull to ground. We will drive the GPIO expander inputs via
+interrupt so we don't have to constantly poll for state changes.
+
+But arming the switches so that they latch. Each switch requires 5v at around 60ma to 100ma, but unfortunately the GPIO
+can only supply around 15ma and across all GPIO pins 50ma in total. So we're going to need some MOSFETs to help with
+that or some PN2222 NPN transistors.
+
+We aren't needing to switch voltages greater than 5v, so technically we don't need MOSFETs.
+
+We wire up the RPI with 5v at 2000mA from a common supply rail.
+
+We use the PN2222 transistors to hook up to the GPIO pins for the base, and then the transistor bridges between common
+ground and the arm line on the toggle switch, and then the 5v 2A rail. We put a kick back diode 1N4001 on the transistor
+to protect the transistor and the microcontroller when the electromagnetc disengages.
+
+I think the datasheet for the toggle switch explicitly states it has a kickback diode on it. I will need to verify that
+
+# Not burning out the switch electromagnets
+
+Ivan from Flitepal raised a valid question - do I expect the toggle switches to work continuously, like for up to a week
+at a time. The answer to that is a long "no." How I imagine the switches to be used is that they will sit idle, in the
+off position for the most part, and when the user interacts with the switch by flipping it on, then the electromagnet
+will hold the switch for between 10 minutes and an hour, and then flip the switch off shortly after the chore has been
+completed.
+
+I am thinking that when the toggle switch is off, it is kept in an un-energized state, and only arms itself when the
+user interacts with the physical switch. When the user flips the switch to the on position, the Rpi will arm the switch
+so that it holds in position until the chore expires from the active task list, at which point the toggle switch is
+de-energized and returns to the off state. This way we aren't having to energize the electromagnet continuously - only
+in that split second that the user interacts. Electromagnets, when they don't have a load, but are energized, tend to
+get a bit warm and can burn out. I'll have active cooling with some push-pull fans, but I still don't want to stress the
+electromagnets if I don't have too.
+
+# Pull Ups
+
+We will want to put in some pull up resistors on the ON output line of the toggle switch as per the data sheet. It is a
+floating value when the toggle switch is off.
+
+# Voltages
+
+We want between 3.3v and 5v to drive the solenoid on the VCC line. I felt that 5V made the switch a bit too sticky when
+flipping it off by hand. The logic voltage can be as low as 1.3V. During my testing the logic below 5V got a bit flaky.
+I should definitely revisit this on the breadboard. I may have set something up wrong.
+
+Hmmm. Looking through the datasheet at http://flitepal.com/documents/datasheet/2POS_SLND_SW_rev25.04.2022.pdf I cannot
+find anything about kick back protection directly on the switch so better safe than sorry, we'll put our own in. That
+said, arming voltage is 1.3V minimum, so that is not enough to damage anything, and secondly, that implies the 1.3V is
+going to a MOSFET rather, with the VCC supplying the voltage to hold the toggle switch in place via the solenoid,
+
+# Handling Chores Software Development Progress
+
+I have added code to determine if a chore is pending in the simplest of cases, i.e. daily and in a daypart. I set up the
+chore as pending, and then the chore can successfully migrate to the active list if there is a slot for it. This is good
+progress because it was actually quite a bit of infrastructure code to get to this point.
+
+I have added timestamps to each chore for completed time, activated time, concluded time, and so forth. I also put the
+display position of the chore on the visual display inside the chore itself, so that it can be restored to its proper
+location at a later time.
+
+I modified the chore save functions so that a completed chore is not saved out. I also put a distinction between
+completed chores and concluded chores.
+
+I've added a chore hashing function to ensure that a chore only appears on the pending list or active list once.
+
+When active chores are reloaded (on application start) they are put on to the display list in their proper placement.
+
+# Fake Hardware
+
+Created a couple of runtime flags that will let me determine if I should use emulated hardware buttons or the real deal.
+They can both run side-by-side, or rather, will be able to run side-by-side once I write the code.
+
+# Hardware abstraction
+
+Doing my best to abstract away the hardware, e.g. toggle switches, arming/disarming of solenoids, momentary switches,
+and so forth as much as I can in my code so it maintains a good architecture.
+
+# Accelerated Time & Fixed Start Time
+
+Added in a function, and run time flags, to determine if a fixed start time should be used, this will let me manipulate
+the time when the program first runs so that pending chores for the appropriate day part and day of week, and time of
+year, are fully tested. And I also added in a runtime flag to accelerate time to 600 times normal rate, so ten minutes
+of time goes by in just a few seconds, and an hour goes by in about six seconds. This will let me rapidly test out
+active chores expiring, becoming more urgent, adding new pending chores, and so forth.
+
+# Frame Rate Limiting
+
+I am using the frame rate limiting feature of pygame to lock the code at 60FPS. I may change this just 15FPS or less, as
+I don't think it needs to run that fast. I will need to play around with this as some of the visual effects may require
+higher frame rates. But I could also use a floating frame rate, running at low frame rate when nothing is happening, and
+then ramping up the frame rate just for a visual effect, before returning to normal.
+
+# Arming & Disarming Toggle Switches
+
+After what Ivan stated about how the solenoid works in the toggle switches, in that it is not using any current when the
+toggle switch is in the off position, even though the solenoid could be armed at that point, means that my logic to
+handle toggle switches is a lot cleaner. I added some functionality to the toggle switch controller class that makes
+resetting a toggle switch a trivial operation from the perspective of the architecture. I am not entirely happy with how
+I implemented it, I maintain two lists, a of toggle switches to disarm, and a list of toggle switches to arm, and when a
+toggle switch needs to be reset, it is placed on the list of switches to disarm, that list gets processed once per video
+frame, and as each toggle switch is disarmed, the toggle switch is added to the list of switches to be armed. Then the
+next video frame, any toggle switches that are on the arm list, are armed, and obviously, removed from the list. At 60
+FPS that means there is 33ms between a disarm --> arm operation.
+
+# Wrinkle in arming & disarming
+
+With the architecture of disarming and arming above, there is a wrinkle when it comes to tasks being added to the active
+chore list. If a switch is always armed, then when the chore is adding to the active chore list, the switch needs to be
+reset, i.e. disarmed, then armed, because a user might have inadvertently or intentionally flipped one of the switches
+to the ON position.
+
+I could solve this by either resetting the toggle switch when a chore is added to the active chore list, or I could
+leave all unused toggle switches disarmed until a chore is placed on the active chore list.
+
+# Runtime Flags
+
+I added a bunch of runtime flags to the system that let me accelerate time, start at a fixed point in time, clean up old
+chore lists, emulate hardware, and so forth, which will make debugging certain parts of the system a lot easier. I've
+wrapped these runtime flags in accessor functions so that the code should not be directly accessing them at runtime and
+instead just using the read-only function to determine if a debugging feature is enabled or not. I need to move these
+runtime flags from the utils.py module to their own runtime _flags.py module, and also rename the variables to use
+double-underscores to indicate they are private to the module and not to be accessed by outside code.
+
+# Additional Chores
+
+Bring in the post Monday, Wednesday Evening Day
+
+# Super Short HDMI Cable
+
+Ordered a 6 inch / 15 cm HDMI cable to go from the Raspberry Pi to the 4K display. Now have that in my possession, so I
+can remove the 6ft cable / 2m cable from the prototype.
+
+# Emulating LEDs
+
+LEDs have a certain charm about them, but I could emulate an LED using a glass bead and the LCD touch screen. I would
+need to check out how that will look.
+
+# Real "fake" teak
+
+I am trying to go for the real fake look. So all the "high tech" 1970's electronics of yore are emulated by super modern
+21st century technology. And all the fake wood grain of the 1970's is emulated by real wood grain. It's this
+juxtaposition of fake stuff being real, and real stuff being fake. Or something. I don't know, it's some bullshit an
+artiste would say too justify the fact that he doesn't know what he's doing.
+
+The fake wood grain on the Atari 2600 was most likely teak. There wasn't much of it used. Just along the front it
+appears. My intention is to build the enclosure out of teak, possibly with some stainless steel, or machined aluminium,
+or chromed steel, for certain elements. Toggle switches will of course be chromed.
+
+# Raised profile around switches
+
+On the Atari 2600 heavy sixer there is a raised profile around the switches. It was either orange or red. In the file
+photo on Wikipedia it shows it as orange, or brownish orange. I want this look to also be on the front of the chore list
+device.
+
+![](./lab-notes-images/image031.jpg)
+
+# Labelled buttons
+
+The buttons on the atari 2600 is labelled very clearly in lower case text, with some extra information or graphics. The
+power switch is labelled with red text. We should emulate this look too.
+
+# Power cord hidden away
+
+I want the power cord to plug in to the back of the device, so that if the cord is visible, the honking huge plug is
+not.
+
+# Network port/USB ports
+
+Because the network port and USB ports will not normally be used for day-to-day operation I can put those ports on the
+side or underside of the device.
+
+# Engraved back plate
+
+I want information about the device, e.g. default login, MAC ID, etc printed on the back of the case. I want this
+information to be put in to an engraved brass plate. We can engrave this on our CNC mill.
+
+# Skip and postpone chores
+
+We maintain a list of active chores.
+
+When you hit the button that skips a chore the chore is removed from the active chore list. We maintain a list of
+skipped chores purely for record keeping, the skipped chore is added to the skipped chore list.
+
+We also have a button that permits you to postpone a chore. When you postpone the chore it means the chore is
+temporarily ignored. So a user hits the postpone chore button and the chore is removed from the active chore list and it
+is placed on the postponed chore list. The postponed chore list adds two extra fields to the chores. The first field is
+at what time the chore was postponed, this is the epoch time, and how long the chore should be postponed for.
+
+The default amount of time that a chore should be postponed for will be calculated dependent upon how frequently the
+chore occurs. For example if a chore is daily and has a daypart then the chore may be postponed for one daypart or it
+may be postponed for one whole day. I'm not sure of which yet. If a chore is weekly and it occurs once a week. Then that
+chore is postponed for, e.g. 48 hours or an entire day. I'm not sure yet. There's going to be some heuristics that I
+will play around with. If a chore is monthly, you postpone the chore then maybe the chore is postponed for several days
+or a week. Again, play around with the numbers. I think what I will do is on the known chores list I will add an
+optional field that will permit the user to specify how long a chore should be postponed for. So let's say that I have a
+chore of water the basil plant. The user could specify that you can postpone this task for 1 day part.
+
+If you have a chore that says renew the AAA membership which occurs precisely once per year, and the user wants to push
+it off a bit, perhaps due to budget, then the postponement should probably be somewhere in the region of a week. If we
+have a chore that says pay the cell phone bill, and you postpone it and this chore occurs once per month, then we are
+effectively saying postpone it for a couple of days, or postpone it for a week,. Whilst I think the user should be able
+to specify any postponement period that they desire, within reason, the default is one day. If they do not specify then
+the period should probably be kept to under a week.
+
+When a chore is postponed we place that postponed chore onto a dedicated postponed chore list, and we timestamp when the
+task was postponed, and we specify how many seconds before the postponed task must be moved back to the pending list.
+
+A postponed chore does not automatically move on to the activated list, it is moved to the end of the pending list. That
+said we might want to give priority to postponed chores over pending chores. Which means that we populate the activated
+list from the postponed list first and then we populate from the pending list second. Or we put postponed chores back on
+the pending list, but at the front of the queue. I will play around with that, I don't think that logic needs to be
+overly complicated or clever.
+
+We of course need to save the postponed task list. This will happen naturally because we save all of the chore lists.
+When we put a chore onto the postponed chore list we can put the timestamp of when the chore was added to the list, and
+obviously the duration that it should exist on the list, and those two numbers added together are when the chore should
+go back to the pending chore list, but we may want to just simply put a field that indicates the timestamp in the future
+of when the chore should be moved back to the pending chore list. The postponed chore list will be ordered by the future
+timestamp, it could also be an ordered dictionary.
+
+However it works I don't think it's going to take much processing power to run through a postponed chore list that might
+have at most a half dozen postponed chores on it and calculate some basic numbers of future timestamps and current
+timestamp, determine if a chore should be moved from the postponed chore list to the pending chore list. We are not
+talking thousands on thousands on thousands of chores. At any particular point in time worst case scenario somebody went
+ahead and postponed all of the current chores for a day or two.
+
+
+
+
