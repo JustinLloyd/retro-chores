@@ -1,10 +1,8 @@
 import json
-import queue
-from array import array
-
-import numpy as numpy
+import cfg
 
 from src.chore import Chore
+from util import ee
 
 
 class ChoreHandlerBase:
@@ -55,10 +53,14 @@ class ChoreQueue(ChoreHandlerBase):
     def push(self, chore: Chore):
         self._chores.append(chore)
         self._save_chores()
+        print('chore-pushed', chore.task)
+        ee.emit('chore-pushed', chore)
 
     def pop(self) -> Chore:
         chore = self._chores.pop(0)
         self._save_chores()
+        print('chore-popped', chore.task)
+        ee.emit('chore-popped', chore)
         return chore
 
 
@@ -68,43 +70,64 @@ class ChoreList(ChoreHandlerBase):
 
     def append(self, chore):
         self._chores.append(chore)
+        self._save_chores()
+        print('chore-added', chore.task)
+        ee.emit('chore-added', chore)
 
     def remove(self, chore):
         self._chores.remove(chore)
+        self._save_chores()
+        print('chore-remove', chore.task)
+        ee.emit('chore-remove', chore)
 
 
 class ChoreArray(ChoreHandlerBase):
-    def __init__(self, filename: str, size: int = 12):
+    def __init__(self, filename: str):
         super(ChoreArray, self).__init__(filename)
-        while len(self._chores) < size:
-            self._chores.append(None)
-        # self.chores = numpy.empty(size, dtype=Chore)
-        # chores = self.__load_chores__()
-        # try:
-        #     for idx, chore in enumerate(chores):
-        #         self.chores[idx] = chore
-        # except Exception:
-        #     pass
 
-    def get(self, index: int) -> Chore:
-        return self._chores[index]
-
-    def put(self, chore: Chore):
-        if chore is None:
-            raise RuntimeError("Chore cannot be empty")
-        if chore.display_position is None:
-            raise RuntimeError("Chore's display position cannot be empty")
-        if chore.display_position < 0 or chore.display_position>11:
-            raise RuntimeError("Chore's display position must be between 0 and 11")
-
-        self._chores[chore.display_position] = chore
+    def append(self, chore):
+        self._chores.append(chore)
         self._save_chores()
+        print('chore-added', chore.task)
+        ee.emit('chore-added', chore)
+
+    def remove(self, chore):
+        self._chores.remove(chore)
+        self._save_chores()
+        print('chore-removed', chore.task)
+        ee.emit('chore-removed', chore)
+
+    def get(self, position: int):
+        if position < 0 or position >= cfg.AVAILABLE_SLOTS:
+            raise RuntimeError('Position is out of range')
+
+        for chore in self._chores:
+            if chore.display_position == position:
+                return chore
+        return None
+
+    # def put(self, chore: Chore):
+    #     if chore is None:
+    #         raise RuntimeError("Chore cannot be empty")
+    #     if chore.display_position is None:
+    #         raise RuntimeError("Chore's display position cannot be empty")
+    #     if chore.display_position < 0 or chore.display_position > 11:
+    #         raise RuntimeError("Chore's display position must be between 0 and 11")
+    #
+    #     self._chores[chore.display_position] = chore
+    #     ee.emit('chore-added', chore)
+    #     self._save_chores()
 
     def has_empty_slot(self):
-        if None in self._chores:
-            return True
-        return False
+        return len(self._chores) < cfg.AVAILABLE_SLOTS
 
     def find_empty_slot(self):
         # TODO randomize the empty slot selected if there is more than one empty slot
-        return self._chores.index(None)
+        if not self.has_empty_slot():
+            raise RuntimeError('No available empty slot')
+
+        slots = [idx for idx in range(cfg.AVAILABLE_SLOTS)]
+        for chore in self._chores:
+            slots.remove(chore.display_position)
+
+        return slots[0]

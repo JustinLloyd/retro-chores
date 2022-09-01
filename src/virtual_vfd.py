@@ -1,13 +1,14 @@
 import pygame
 
+import cfg
 from src.spritesheet import Spritesheet
-from src.util import is_raspberrypi
 
 
-class VFD:
+
+class VirtualVFD:
     def __init__(self):
         self.max_columns = 20
-        self.max_ranks = 12
+        self.max_ranks = cfg.AVAILABLE_SLOTS
         self.max_strips = 2
         self.horizontal_offset = 14
         self.vertical_offset = 24
@@ -22,7 +23,7 @@ class VFD:
         self.displayinfo = None
         self.displayinfo = pygame.display.Info()
         print(f"Display size = {self.displayinfo.current_w}x{self.displayinfo.current_h}")
-        if is_raspberrypi():
+        if cfg.is_raspberrypi():
             self.lcd = pygame.display.set_mode((1100, 3840))
         else:
             self.lcd = pygame.display.set_mode((550, 1920))
@@ -43,7 +44,7 @@ class VFD:
 
     def cls(self):
         self.lcd.fill((0, 0, 0))
-        for rank in range(12):
+        for rank in range(cfg.AVAILABLE_SLOTS):
             self.clr(rank)
         self.flush()
 
@@ -155,7 +156,7 @@ class VFD:
             '%': {'img': self.spritesheet.get_by_name("symbol-percentage"), 'x': 0, 'y': 0},
         }
 
-        if not is_raspberrypi():
+        if not cfg.is_raspberrypi():
             self.cell_off = self.resize(self.cell_off)
             for character in self.character_lookup:
                 self.character_lookup[character]['img'] = self.resize(self.character_lookup[character]['img'])

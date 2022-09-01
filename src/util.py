@@ -1,3 +1,5 @@
+from pyee.base import EventEmitter
+
 import datetime
 import time
 import io
@@ -5,13 +7,9 @@ from enum import IntEnum
 
 import pygame.time
 
-pi = False
-platform_confirmed = False
-use_accelerated_time = True
-use_fixed_start_time = True
-emulated_hardware = True
-real_hardware_available = False
-clean_up_chores = True
+import cfg
+
+ee = EventEmitter()
 
 
 class Urgency(IntEnum):
@@ -80,41 +78,14 @@ def get_daypart(time):
 
 
 def get_datetime():
-    if use_fixed_start_time:
+    if cfg.use_fixed_start_time:
         return datetime.datetime(2022, 8, 25, 10, 0, 0)
     return datetime.datetime.now()
 
 
 def get_time():
-    if use_accelerated_time:
+    if cfg.use_accelerated_time:
         return datetime.datetime(2022, 8, 25, 10, 0, 0).timestamp() + pygame.time.get_ticks() * 600
     return time.time()
 
 
-def has_real_hardware():
-    return real_hardware_available
-
-
-def should_emulate_hardware():
-    return emulated_hardware
-
-
-def should_clean_up_chores():
-    return clean_up_chores
-
-
-def is_raspberrypi():
-    global platform_confirmed
-    global pi
-    if platform_confirmed:
-        return pi
-
-    try:
-        platform_confirmed = True
-        with io.open('/sys/firmware/devicetree/base/model', 'r') as m:
-            if 'raspberry pi' in m.read().lower():
-                pi = True
-                return True
-    except Exception:
-        pass
-    return False

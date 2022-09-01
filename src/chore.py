@@ -2,7 +2,7 @@ import hashlib
 import time
 from enum import IntEnum
 
-from util import get_time, Period, Urgency, Daypart, Day, Month
+from util import get_time, Period, Urgency, Daypart, Day, Month, ee
 
 
 class Chore:
@@ -39,16 +39,18 @@ class Chore:
     def activate(self, display_position):
         self.display_position = display_position
         self.activated_at = get_time()
+        print(('chore-activated', self.task))
+        ee.emit('chore-activated', self)
 
-    def conmplete(self):
+    def complete(self):
         self.completed_at = get_time()
+        ee.emit('chore-completed', self)
 
     def conclude(self):
         self.concluded_at = get_time()
         self.display_position = None
-
-    def display_at(self, display_position):
-        self.display_position = display_position
+        print('chore-conluded', self.task)
+        ee.emit('chore-conluded', self)
 
     def is_active(self):
         if self.activated_at is not None:

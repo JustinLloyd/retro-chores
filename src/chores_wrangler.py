@@ -5,12 +5,17 @@ import copy
 import time
 import datetime
 
+import cfg
 from src.active_chores import ActiveChores
 from src.concluded_chores import ConcludedChores
 from src.known_chores import KnownChores
 from src.pending_chores import PendingChores
-from util import get_datetime, Daypart, Urgency, Day, Month, Period, get_daypart, get_time
+from util import get_datetime, Daypart, Urgency, Day, Month, Period, get_daypart, get_time, ee
 
+
+@ee.on('toggle-switch-toggled-on')
+def toggle_switch_toggled_on(switch_index):
+    cfg.chores.complete_chore(switch_index)
 
 class ChoreWrangler:
     def __init__(self):
@@ -28,6 +33,14 @@ class ChoreWrangler:
     # TODO when a chore is completed and becomes stale after a time, it is simply removed from the active chore list - no further processing takes place as it is already on the the concluded chores list
     # TODO we might want to rename concluded chores list to completed chores list
     # TODO on start we want to unlatch all toggle switches by default
+
+    def complete_chore(self, index):
+        chore = self.active_chores.get(index)
+        if chore is None:
+            print("Tried to complete a non-existent chore")
+            return
+
+        chore.complete()
 
     def clean_up_old_chores(self):
         old_chores = self.active_chores.clean_up_old_chores()
@@ -62,8 +75,8 @@ class ChoreWrangler:
                 empty_slot_index = self.active_chores.find_empty_slot()
                 chore = self.pending_chores.pop()
                 chore.activate(empty_slot_index)
-                self.active_chores.put(chore)
-                updated_active_chores.append(empty_slot_index)
+                chore.display_position = empty_slot_index
+                self.active_chores.append(chore)
                 # TODO tell the toggle switch to arm itself
                 # TODO tell the VFD to update itself
 

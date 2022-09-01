@@ -1,0 +1,2 @@
+class GPIOInputHandler:
+    pass
