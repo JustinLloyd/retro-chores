@@ -1759,3 +1759,14 @@ wait to get my hands on the new design. They look fantastic.
 ![](./lab-notes-images/image033.jpg)
 
 ![](./lab-notes-images/image034.jpg)
+
+# Lots of code updated
+
+More code check-ins. Have added chore completion, "un-competition", and added emulated toggle switches on the Fn keys of
+the PC keyboard, including postpone and skip chore input functionality. The input for postpone and skip isn't tied to
+anything at this time, but the input works.
+
+Change over to using event emitters and event handlers which has cleaned up a lot of the architecture, and migrated a
+bunch of hardcoded numbers to global defines.
+
+
