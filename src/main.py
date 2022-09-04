@@ -52,10 +52,10 @@ def run_game_logic():
     # # add new active chores
     # pass
 
-
 def process_input():
     global is_running
 
+    emulated_buttons = [K_F1, K_F2, K_F3, K_F4, K_F5, K_F6, K_F7, K_F8, K_F9, K_F10, K_F11, K_F12]
     events = pygame.event.get()
     for event in events:
         if event.type == QUIT:
@@ -64,10 +64,14 @@ def process_input():
             if event.key == K_ESCAPE:
                 is_running = False
         if event.type == KEYUP:
-            if event.key == K_F1:
-                ee.emit('emulated-toggle-switch-toggled', 0)
-            if event.key == K_F2:
-                ee.emit('emulated-toggle-switch-toggled', 1)
+            for index, emulated_button in enumerate(emulated_buttons):
+                if event.key == emulated_button:
+                    if pygame.key.get_mods() & pygame.KMOD_SHIFT:
+                        ee.emit('emulated-momentary-switch-postponed', index)
+                    elif pygame.key.get_mods() & pygame.KMOD_CTRL:
+                        ee.emit('emulated-momentary-switch-skipped', index)
+                    else:
+                        ee.emit('emulated-toggle-switch-toggled', index)
 
 
 def update_display():

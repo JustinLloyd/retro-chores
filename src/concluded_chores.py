@@ -1,12 +1,12 @@
 import cfg
 from chore import Chore
-from src.chore_handler_base import ChoreList
+from chore_list import ChoreList
 from util import get_time, ee
 
 
 @ee.on('chore-concluded')
-def chore_concluded(chore):
-    concluded_chores.conclude_chore(chore)
+def on_chore_concluded(chore):
+    concluded_chores.on_chore_concluded(chore)
 
 
 class ConcludedChores(ChoreList):
@@ -15,6 +15,9 @@ class ConcludedChores(ChoreList):
         super().__init__('concluded-chores.json')
         concluded_chores = self
 
+    def on_chore_concluded(self, chore):
+        self.conclude_chore(chore)
+
     def clean_up(self):
         for chore in self._chores:
             timespan = get_time() - chore.concluded_at
@@ -22,12 +25,9 @@ class ConcludedChores(ChoreList):
             if timespan > 1000:
                 self._chores.remove(chore)
 
-    def append(self, chore: Chore):
+    def conclude_chore(self, chore):
         chore.concluded_at = get_time()
         self._chores.append(chore)
-
-    def conclude_chore(self, chore):
-        self.append(chore)
         ee.emit('concluded-chore', chore)
 
 

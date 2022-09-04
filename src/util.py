@@ -85,7 +85,7 @@ def get_datetime():
 
 def get_time():
     if cfg.use_accelerated_time:
-        return datetime.datetime(2022, 8, 25, 10, 0, 0).timestamp() + pygame.time.get_ticks() * 600
+        return datetime.datetime(2022, 8, 25, 10, 0, 0).timestamp() + pygame.time.get_ticks() * cfg.time_scale
     return time.time()
 
 

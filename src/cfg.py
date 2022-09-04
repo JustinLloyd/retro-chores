@@ -7,14 +7,17 @@ chores = None
 vfd = None
 
 AVAILABLE_SLOTS = 12
+MAX_CONCLUDED_TASKS = 200
 
 pi = False
 platform_confirmed = False
 use_accelerated_time = True
+time_scale = 600
 use_fixed_start_time = True
 emulated_hardware = True
 real_hardware_available = False
 clean_up_chores = False
+
 
 def has_real_hardware():
     return real_hardware_available

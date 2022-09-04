@@ -13,10 +13,6 @@ from src.pending_chores import PendingChores
 from util import get_datetime, Daypart, Urgency, Day, Month, Period, get_daypart, get_time, ee
 
 
-@ee.on('toggle-switch-toggled-on')
-def toggle_switch_toggled_on(switch_index):
-    cfg.chores.complete_chore(switch_index)
-
 class ChoreWrangler:
     def __init__(self):
         self.urgency_names = [e.name.lower() for e in Urgency]
@@ -34,18 +30,11 @@ class ChoreWrangler:
     # TODO we might want to rename concluded chores list to completed chores list
     # TODO on start we want to unlatch all toggle switches by default
 
-    def complete_chore(self, index):
-        chore = self.active_chores.get(index)
-        if chore is None:
-            print("Tried to complete a non-existent chore")
-            return
-
-        chore.complete()
-
-    def clean_up_old_chores(self):
-        old_chores = self.active_chores.clean_up_old_chores()
-        for chore in old_chores:
-            self.concluded_chores.append(chore)
+    # def complete_chore(self, index):
+    #     self.active_chores.complete(index)
+    #
+    # def uncomplete_chore(self, index):
+    #     self.active_chores.uncomplete(index)
 
     def process_chore_logic(self):
         # convert now into a daypart
@@ -67,18 +56,10 @@ class ChoreWrangler:
             pending_chore = copy.deepcopy(chore)
             pending_chore.created_at = get_time()
             self.pending_chores.push(chore)
+            break
 
-        updated_active_chores = []
         # move pending chores to active chores if there are empty slots on the active chores list
-        if self.active_chores.has_empty_slot():
-            if self.pending_chores.count() > 0:
-                empty_slot_index = self.active_chores.find_empty_slot()
-                chore = self.pending_chores.pop()
-                chore.activate(empty_slot_index)
-                chore.display_position = empty_slot_index
-                self.active_chores.append(chore)
-                # TODO tell the toggle switch to arm itself
-                # TODO tell the VFD to update itself
+        self.process_pending_chores()
 
         # TODO remove expired chores from the active chore list
         # TODO tell the toggle switch to reset itself
@@ -104,9 +85,17 @@ class ChoreWrangler:
         # we hash the chore
         # then we go through all the chores on the pending & active list to determine if that chore is already in the queue
 
-        return updated_active_chores
-
     def skip(self):
         # remove chore from active chore list
         # add chore to concluded chore list
         pass
+
+    def process_pending_chores(self):
+        if not self.active_chores.has_empty_slot():
+            return
+
+        if self.pending_chores.count() == 0:
+            return
+
+        chore = self.pending_chores.pop()
+        self.active_chores.activate_chore(chore)

@@ -1,4 +1,4 @@
-from src.chore_handler_base import ChoreList
+from chore_list import ChoreList
 from util import get_datetime, Period, get_daypart
 
 

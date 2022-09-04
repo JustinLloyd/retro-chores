@@ -32,43 +32,63 @@ class Chore:
             'created_at': self.created_at,
             'completed_at': self.completed_at,
             'activated_at': self.activated_at,
+            'concluded_at': self.concluded_at,
             'display_position': self.display_position
         }
         return chore_data
 
     def activate(self, display_position):
+        if self.is_active():
+            print("Tried to activate a chore that is already active", self.display_position, self.task)
+            return
+
         self.display_position = display_position
         self.activated_at = get_time()
         print(('chore-activated', self.task))
         ee.emit('chore-activated', self)
 
     def complete(self):
+        if self.is_complete():
+            print("Tried to complete a chore that is already completed", self.display_position, self.task)
+            return
+
+        assert self.is_active()
         self.completed_at = get_time()
+        print('chore-completed', self.task)
         ee.emit('chore-completed', self)
 
+    def uncomplete(self):
+        if not self.is_complete():
+            print("Tried to uncomplete a chore that hasn't been completed", self.display_position, self.task)
+            return
+
+        self.completed_at = None
+        print('chore-uncompleted', self.task)
+        ee.emit('chore-uncompleted', self)
+
     def conclude(self):
+        if not self.is_complete():
+            print("Tried to conclude a chore that hasn't been completed", self.display_position, self.task)
+            return
+
         self.concluded_at = get_time()
         self.display_position = None
-        print('chore-conluded', self.task)
-        ee.emit('chore-conluded', self)
+        print('chore-concluded', self.task)
+        ee.emit('chore-concluded', self)
 
     def is_active(self):
-        if self.activated_at is not None:
-            return True
-        return False
+        return self.activated_at is not None and self.completed_at is None
 
     def is_overdue(self):
         if self.activated_at is None:
             return False
-        timespan = get_time() - self.activated_at
-        if timespan < 1000:
+        if self.completed_at is not None:
             return False
-        return True
+        timespan = get_time() - self.activated_at
+        return timespan > 1000
 
     def is_complete(self):
-        if self.completed_at is None:
-            return False
-        return True
+        return self.completed_at is not None
 
     def is_concluded(self):
         if self.completed_at is None:
@@ -89,6 +109,7 @@ class Chore:
         chore.created_at = chore_data['created_at'] if 'created_at' in chore_data else None
         chore.activated_at = chore_data['activated_at'] if 'activated_at' in chore_data else None
         chore.completed_at = chore_data['completed_at'] if 'completed_at' in chore_data else None
+        chore.concluded_at = chore_data['concluded_at'] if 'concluded_at' in chore_data else None
         chore.display_position = chore_data['display_position'] if 'display_position' in chore_data else None
 
         if 'dayparts' in chore_data:
