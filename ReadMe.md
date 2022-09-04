@@ -1737,6 +1737,25 @@ timestamp, determine if a chore should be moved from the postponed chore list to
 talking thousands on thousands on thousands of chores. At any particular point in time worst case scenario somebody went
 ahead and postponed all of the current chores for a day or two.
 
+# Spring-Loaded Slide Switches
 
+The original Atari 2600 had spring loaded slide switches for changing game modes, number of players, resetting the game,
+and so forth. These might be an option for postponing or skipping chores or performing other functionality that would
+require a momentary switch.
 
+# Anodized red momentary buttons
 
+I was thinking that I could use some really nice anodized aluminium momentary switches for postponing or skipping tasks.
+A brief look around shows a number of them available but it seems that most of these are only available as large arcade
+buttons. I would like to maybe get some smaller ones. I will think about this.
+
+# Toggle Switches Assembly
+
+Ivan over at Flitepal is kicking ass assembling all of the toggle switches. These are looking really awesome. I cannot
+wait to get my hands on the new design. They look fantastic.
+
+![](./lab-notes-images/image032.jpg)
+
+![](./lab-notes-images/image033.jpg)
+
+![](./lab-notes-images/image034.jpg)
