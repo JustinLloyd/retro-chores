@@ -5,7 +5,7 @@ import copy
 import time
 import datetime
 
-import cfg
+import globals as g
 from src.active_chores import ActiveChores
 from src.concluded_chores import ConcludedChores
 from src.known_chores import KnownChores

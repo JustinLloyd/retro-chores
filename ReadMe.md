@@ -1754,11 +1754,11 @@ buttons. I would like to maybe get some smaller ones. I will think about this.
 Ivan over at Flitepal is kicking ass assembling all of the toggle switches. These are looking really awesome. I cannot
 wait to get my hands on the new design. They look fantastic.
 
+![](./lab-notes-images/image034.jpg)
+
 ![](./lab-notes-images/image032.jpg)
 
 ![](./lab-notes-images/image033.jpg)
-
-![](./lab-notes-images/image034.jpg)
 
 # Lots of code updated
 
@@ -1769,4 +1769,84 @@ anything at this time, but the input works.
 Change over to using event emitters and event handlers which has cleaned up a lot of the architecture, and migrated a
 bunch of hardcoded numbers to global defines.
 
+# Hardware Switches, Momentary Switches & Toggle Switches
+I have a class that handles the toggle switches, and then individual objects of type "toggle switch" that handles the
+individual switches themselves. This toggle switch class can arm and disarm the electromagnet in the toggle switch, and
+it can respond to emulated toggle switches or physical toggle switches.
 
+I have to build a class to handle the momentary switches too. Which got me thinking, why don't I build a parent class,
+that handles hardware switches, and then derive two child classes from that, one for the electromagnet toggle switches
+and one for the momentary switches.
+
+# Keyboard HID over USB break out board
+So I started building this hardware abstraction class to handle all the types of switches, but then I thought, I wonder
+if I could get a HID keyboard USB breakout board that I could just have all the toggle switches and momentary switches
+hooked up to and everything just works like a keyboard. But I thought, that'll only work if I can get a HID keyboard
+controller that handles something like 15 key or 20 key rollover because there might be up to 12 toggle switches all
+engaged at once, i.e. held down, because toggle switches stay toggled until they no longer toggled.
+
+I look around, and stumbled on a place that has a board that is ideal.
+
+# 64 input joypad
+I found a little circuit board sold into the driving sim/racing sim market that can take 64 buttons or switches and map
+them like joypad inputs. 64 of them!
+
+That's a lot of inputs that it can handle.
+
+12 for the toggle switches, 12 for the post momentary switches, 12 for the skip momentary switches, maybe three or four
+more buttons for other purposes. Awesome! They are 40 quid each, so I bought four of them. There's no ghosting, no
+rollover problems, no matrix issues, you just plug the board in to your USB equipped computer, on windows or macOS or
+Linux and it appears as a 64 button joypad. I bought four of these boards because I can use one in the chore list I am
+building, a second one if I build another chore list, one in the jukebox, and keep one on hand. There's also 32 button
+versions of the board too, and they can handle a rotary encoder, or an analogue input. I might pick some of those up
+later in the year.
+
+Now that I have a joypad input device, I can simply use an actual joypad as the toggle switches (I will need to make
+some special logic to handle that type of switch on a regular joypad) or momentary switches until I get around to
+setting up the electromagnet toggle switches from Ivan over at Flitepal.
+
+Great, now all I need to do is control the arm/disarm of the 12 toggle switches, and for an I2C GPIO expander board
+running through some NPN transistors. I also need to control 12 or 24 pixels, but that can be done through I2C as well,
+or a GPIO expander.
+
+# Joypad in pygame
+
+Pygame with SDL2 has built in support for a joypad. Two lines of code and you can start reading joysticks.
+
+Unfortunately, plugging the my Xbox One controller into my workstation isn't working in pygame. Pygame simply doesn't
+see it. And the reason that Pygame cannot see my Xbox controller is because the controller is connected to my Windows 10
+workstation, which is acting the host, and pygame is running inside of a Linux VM. And I'm an idiot.
+
+Now the simplest answer to this is "well, you just need to pass through the device." Except it isn't that easy. I have
+the joystick plugged into an Anker hub on my desk, and VMWare Workstation 100% positively refuses to even acknowledge
+that there is a game controller plugged in to the host, even though the game controller is working fine & dandy on the
+Windows host. Someone on stack overflow mentioned restarting the USB Arbitration device, along with restart the guest OS
+and VMWare Workstation itself. This didn't work. I have dug out a rabbit hole where someone says you have to switch to
+using USB 2.0 in the VMWare settings for the guest oS, and then it works, but it doesn't. Because I suspect the USB 3.0
+hub on my desk that the controller is passing through. I've solved one part of the issue by taking a long USB 3.0
+passive extension and running it directly into a USB 2.0 port on my workstation. And now VMWare will let me connect the
+controller to a Windows 10 guest OS. Great, but the guest OS can see the controller, acknowledges it is indeed an xbox
+controller, but refuses to talk to it. A trawl through some more threads and we discover a secret incantation for "USB
+quirks" in the VMWare VMX configuration file for the guest OS. And now my Windows 10 guest OS VM can see the game
+controller and acknowledges my inputs. Game on.
+
+Applying the same trick, USB 2.0 and the USB quirks VMX config setting has permitted me to connect my game controller to
+my Linux guest OS where I am doing the development work. Starting up my python code once more, and I am now able to
+print out the events as I tap buttons on the joypad game controller.
+
+# Emulating Toggle Switches on the joypad
+
+Toggle switches stay toggled when you toggle them. Buttons on my Xbox game controller do not. I have in my game loop
+handling of regular PC keyboard buttons that "toggle" the toggle switches on each keypress. I think we can do the same
+with the xbox game controller until the custom gamepad control board shows up.
+
+Missing button 8 on the game controller
+I've hit every button on the xbox game controller, but for the life of my I cannot seem to find any button that
+acknowledges itself as button 8. Need to research this weirdness.
+
+# No longer emulating hardware switches
+
+Won't need to emulate momentary switches or toggle switches if using the joypad. It'll work on PC and on Raspberry Pi. I
+can write the code now as though I have access to final hardware. Also, when I finally wire up the toggle switches with
+the USB game pad control board I just purchased, I can use that custom USB gamepad directly on my workstation and simply
+pass it through to the Linux VM.

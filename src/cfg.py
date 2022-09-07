@@ -1,13 +1,16 @@
 import io
 
-chore_display = None
-toggle_switch_controller = None
-vLEDStrip = None
-chores = None
-vfd = None
-
 AVAILABLE_SLOTS = 12
 MAX_CONCLUDED_TASKS = 200
+# what buttons are plugged in where
+BUTTON_MIN = 0
+BUTTON_TOGGLE_MIN = 0
+BUTTON_TOGGLE_MAX = 11
+BUTTON_SKIP_MIN = 12
+BUTTON_SKIP_MAX = 23
+BUTTON_POSTPONE_MIN = 24
+BUTTON_POSTPONE_MAX = 35
+BUTTON_MAX = 35
 
 pi = False
 platform_confirmed = False

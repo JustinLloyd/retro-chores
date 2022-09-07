@@ -1,3 +1,4 @@
+import globals as g
 from chore_queue import ChoreQueue
 from src.chore import Chore
 from util import ee

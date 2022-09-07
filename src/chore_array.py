@@ -11,13 +11,13 @@ class ChoreArray(ChoreHandlerBase):
     #     self._chores.append(chore)
     #     self._save_chores()
     #     print('chore-added', chore.task)
-    #     ee.emit('chore-added', chore)
+    #     ee.emit(evt.CHORE_ADDED, chore)
     #
     # def remove(self, chore):
     #     self._chores.remove(chore)
     #     self._save_chores()
     #     print('chore-removed', chore.task)
-    #     ee.emit('chore-removed', chore)
+    #     ee.emit(evt.CHORE_REMOVED, chore)
 
     def get(self, position: int):
         if position < 0 or position >= cfg.AVAILABLE_SLOTS:
@@ -37,7 +37,7 @@ class ChoreArray(ChoreHandlerBase):
     #         raise RuntimeError("Chore's display position must be between 0 and 11")
     #
     #     self._chores[chore.display_position] = chore
-    #     ee.emit('chore-added', chore)
+    #     ee.emit(evt.CHORE_ADDED, chore)
     #     self._save_chores()
 
     def has_empty_slot(self):

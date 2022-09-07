@@ -1,7 +1,7 @@
 import os
 
 import pygame
-
+import globals as g
 import cfg
 
 

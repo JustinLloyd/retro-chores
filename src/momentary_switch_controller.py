@@ -1,3 +1,4 @@
+import globals as g
 from momentary_switch import MomentarySwitch
 
 

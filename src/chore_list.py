@@ -10,11 +10,11 @@ class ChoreList(ChoreHandlerBase):
     #     self._chores.append(chore)
     #     self._save_chores()
     #     print('chore-added', chore.task)
-    #     ee.emit('chore-added', chore)
+    #     ee.emit(evt.CHORE_ADDED, chore)
     #
     # def remove(self, chore):
     #     self._chores.remove(chore)
     #     self._save_chores()
     #     print('chore-removed', chore.task)
-    #     ee.emit('chore-removed', chore)
+    #     ee.emit(evt.CHORE_REMOVED, chore)
     #

@@ -1,19 +1,17 @@
-import cfg
-from chore import Chore
+import evt
+import globals as g
 from chore_list import ChoreList
 from util import get_time, ee
 
 
-@ee.on('chore-concluded')
+@ee.on(evt.CHORE_CONCLUDED)
 def on_chore_concluded(chore):
-    concluded_chores.on_chore_concluded(chore)
+    g.chores.concluded_chores.on_chore_concluded(chore)
 
 
 class ConcludedChores(ChoreList):
     def __init__(self):
-        global concluded_chores
         super().__init__('concluded-chores.json')
-        concluded_chores = self
 
     def on_chore_concluded(self, chore):
         self.conclude_chore(chore)
@@ -28,7 +26,4 @@ class ConcludedChores(ChoreList):
     def conclude_chore(self, chore):
         chore.concluded_at = get_time()
         self._chores.append(chore)
-        ee.emit('concluded-chore', chore)
-
-
-concluded_chores: ConcludedChores
+        ee.emit(evt.CHORE_CONCLUDED, chore)

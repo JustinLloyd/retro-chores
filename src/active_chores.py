@@ -1,46 +1,45 @@
 import json
 
-import cfg
+import evt
+import globals as g
 from chore_array import ChoreArray
-from src.chore import Chore
+from chore import Chore
 from util import ee
 
 
-@ee.on('toggle-switch-toggled-on')
+@ee.on(evt.BUTTON_TOGGLE_ON)
 def toggle_switch_toggled_on(switch_index):
-    active_chores.on_toggle_switch_toggled_on(switch_index)
+    g.chores.active_chores.on_toggle_switch_toggled_on(switch_index)
 
 
-@ee.on('toggle-switch-toggled-off')
+@ee.on(evt.BUTTON_TOGGLE_OFF)
 def on_toggle_switch_toggled_off(switch_index):
-    active_chores.on_toggle_switch_toggled_off(switch_index)
+    g.chores.active_chores.on_toggle_switch_toggled_off(switch_index)
 
 
-@ee.on('chore-completed')
+@ee.on(evt.CHORE_COMPLETED)
 def on_chore_completed(chore):
-    active_chores.on_chore_completed(chore)
+    g.chores.active_chores.on_chore_completed(chore)
 
 
-@ee.on('chore-uncompleted')
+@ee.on(evt.CHORE_UNCOMPLETED)
 def on_chore_uncompleted(chore):
-    active_chores.on_chore_uncompleted(chore)
+    g.chores.active_chores.on_chore_uncompleted(chore)
 
 
-@ee.on('chore-skipped')
-def chore_skipped(chore):
+@ee.on(evt.CHORE_SKIPPED)
+def on_chore_skipped(chore):
     raise NotImplemented
 
 
-@ee.on('chore-postponed')
-def chore_postponed(chore):
+@ee.on(evt.CHORE_POSTPONED)
+def on_chore_postponed(chore):
     raise NotImplemented
 
 
 class ActiveChores(ChoreArray):
     def __init__(self):
-        global active_chores
         super().__init__('active-chores.json')
-        active_chores = self
 
     def on_chore_completed(self, chore):
         super()._save_chores()
@@ -62,7 +61,7 @@ class ActiveChores(ChoreArray):
 
         chore.complete()
         print('active-chore-completed', index, chore.task)
-        ee.emit('active-chore-completed', chore)
+        ee.emit(evt.ACTIVE_CHORE_COMPLETED, chore)
 
     def uncomplete(self, index):
         chore = self.get(index)
@@ -72,7 +71,7 @@ class ActiveChores(ChoreArray):
 
         chore.uncomplete()
         print('active-chore-uncompleted', index, chore.task)
-        ee.emit('active-chore-uncompleted', chore)
+        ee.emit(evt.ACTIVE_CHORE_UNCOMPLETED, chore)
 
     # skip a chore
     def skip(self):
@@ -83,13 +82,13 @@ class ActiveChores(ChoreArray):
 
     # def append(self, chore: Chore):
     #     super().append(chore)
-    #     print('active-chore-added', chore.task)
-    #     ee.emit('active-chore-appended', chore)
+    #     print(evt.ACTIVE_CHORE_ADDED, chore.task)
+    #     ee.emit(evt.ACTIVE_CHORE_APPENDED, chore)
     #
     # def remove(self, chore: Chore):
     #     super().remove(chore)
     #     print('active-chore-removed', chore.task)
-    #     ee.emit('active-chore-removed', chore)
+    #     ee.emit(evt.ACTIVE_CHORED_REMOVED, chore)
 
     def is_chore_active(self, needle_chore: Chore) -> bool:
         for chore_in_haystack in self._chores:
@@ -106,14 +105,14 @@ class ActiveChores(ChoreArray):
         chore.conclude()
         self._chores.remove(chore)
         print('active-chore-concluded', chore.task)
-        ee.emit('active-chore-concluded', chore)
+        ee.emit(evt.ACTIVE_CHORE_CONCLUDED, chore)
 
     def activate_chore(self, chore):
         empty_slot_index = self.find_empty_slot()
         chore.activate(empty_slot_index)
         self.append(chore)
         print('active-chore-activated', chore.task)
-        ee.emit('active-chore-activated', chore)
+        ee.emit(evt.ACTIVE_CHORE_ACTIVATED, chore)
 
     def conclude_completed_chores(self):
         chores_to_conclude = []
@@ -124,12 +123,9 @@ class ActiveChores(ChoreArray):
                 chores_to_conclude.append(chore)
         for chore in chores_to_conclude:
             chore.conclude()
-        # ee.emit('active-chore-concluded-chores', chores_to_conclude)
 
     def get_incomplete_chores(self):
         return [chore for chore in self._chores if chore is not None and not chore.is_complete()]
 
     def get_active_chores(self):
         return [chore for chore in self._chores if chore is not None and chore.is_active()]
-
-active_chores:ActiveChores

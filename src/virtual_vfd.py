@@ -4,7 +4,6 @@ import cfg
 from src.spritesheet import Spritesheet
 
 
-
 class VirtualVFD:
     def __init__(self):
         self.max_columns = 20

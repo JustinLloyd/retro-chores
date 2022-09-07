@@ -1,3 +1,4 @@
+import globals as g
 from chore_list import ChoreList
 from util import get_datetime, Period, get_daypart
 
@@ -5,7 +6,6 @@ from util import get_datetime, Period, get_daypart
 class KnownChores(ChoreList):
     def __init__(self):
         super().__init__('chores.json')
-
 
     def get_new_pending_chores(self) -> list:
         current_daypart = get_daypart(get_datetime())

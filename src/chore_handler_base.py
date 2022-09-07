@@ -1,5 +1,6 @@
 import json
 import cfg
+import evt
 
 from src.chore import Chore
 from util import ee
@@ -37,7 +38,7 @@ class ChoreHandlerBase:
     def append(self, chore):
         self._chores.append(chore)
         self._save_chores()
-        ee.emit('chore-added', chore)
+        ee.emit(evt.CHORE_ADDED, chore)
 
     # def add(self, chore):
     #     self.chores.append(chore)

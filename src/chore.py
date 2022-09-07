@@ -2,6 +2,7 @@ import hashlib
 import time
 from enum import IntEnum
 
+import evt
 from util import get_time, Period, Urgency, Daypart, Day, Month, ee
 
 
@@ -45,7 +46,7 @@ class Chore:
         self.display_position = display_position
         self.activated_at = get_time()
         print(('chore-activated', self.task))
-        ee.emit('chore-activated', self)
+        ee.emit(evt.CHORE_ACTIVATED, self)
 
     def complete(self):
         if self.is_complete():
@@ -55,7 +56,7 @@ class Chore:
         assert self.is_active()
         self.completed_at = get_time()
         print('chore-completed', self.task)
-        ee.emit('chore-completed', self)
+        ee.emit(evt.CHORE_COMPLETED, self)
 
     def uncomplete(self):
         if not self.is_complete():
@@ -64,7 +65,7 @@ class Chore:
 
         self.completed_at = None
         print('chore-uncompleted', self.task)
-        ee.emit('chore-uncompleted', self)
+        ee.emit(evt.CHORE_UNCOMPLETED, self)
 
     def conclude(self):
         if not self.is_complete():
@@ -74,7 +75,7 @@ class Chore:
         self.concluded_at = get_time()
         self.display_position = None
         print('chore-concluded', self.task)
-        ee.emit('chore-concluded', self)
+        ee.emit(evt.CHORE_CONCLUDED, self)
 
     def is_active(self):
         return self.activated_at is not None and self.completed_at is None
